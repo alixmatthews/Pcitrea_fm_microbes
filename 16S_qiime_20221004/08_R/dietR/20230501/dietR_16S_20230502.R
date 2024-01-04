@@ -1,0 +1,887 @@
+### dietR 16S data
+### Alix Matthews
+### 2023 May 2
+
+### R version 4.2.3 (2023-03-15) -- "Shortstop Beagle"
+
+### OS: Ubuntu 20.04.3 LTS
+
+# 1. Set working directory and load libraries ####
+setwd("~/Desktop/Alix/20220523_16S/AHPCC/01_qiime_20221004/08_R/dietr/20230501")
+
+# library(devtools)
+# install_github("sborstein/dietr")
+library(dietr) # 1.1.4
+library(dplyr) # 1.0.10
+library(ggplot2) # 3.3.6
+library(RColorBrewer) # 1.1-3
+library(tidyverse) # 1.3.2
+library(tidyr) # 1.2.1
+
+
+# 2. Phyla level ####
+## 2.1. Load phyla data ####
+phyla_consumed <- read.csv("16S_grouped-filtered-decontam-bio_samples-silva-level-2_nomissing_relabun_curated_MaAsLin2_dietr_paired_consumed.csv", header = TRUE)
+phyla_consumed[3:39] <- lapply(phyla_consumed[3:39], as.numeric)
+str(phyla_consumed)
+
+phyla_available <- read.csv("16S_grouped-filtered-decontam-bio_samples-silva-level-2_nomissing_relabun_curated_MaAsLin2_dietr_paired_available.csv", header = TRUE)
+phyla_available[2:38] <- lapply(phyla_available[2:38], as.numeric)
+str(phyla_available)
+
+## 2.2. Calculate phyla electivity ####
+
+phyla.indices <- Electivity(phyla_consumed, phyla_available, Indices = c("ForageRatio", "Ivlev", "Strauss", "JacobsQ", "JacobsD", "Chesson", "VanderploegScavia"), LogQ = TRUE, CalcAbundance = FALSE, Depleting = FALSE)
+
+# plot example one...
+PlotElectivity(phyla.indices, Indices = "Chesson")
+
+
+### 2.2.1. Get means for electivity indices ####
+
+phyla.indices$ForageRatio %>%
+  rowwise(Record) %>%
+  summarise(m = mean(c_across(d__Bacteria.p__Armatimonadota:d__Bacteria.p__RCP2.54), na.rm = TRUE))
+
+phyla.indices$VanderploegScavia %>%
+  rowwise(Record) %>%
+  summarise(m = mean(c_across(d__Bacteria.p__Armatimonadota:d__Bacteria.p__RCP2.54), na.rm = TRUE))
+
+phyla.indices$Chesson %>%
+  rowwise(Record) %>%
+  summarise(m = mean(c_across(d__Bacteria.p__Armatimonadota:d__Bacteria.p__RCP2.54), na.rm = TRUE))
+
+
+
+## 2.3. Plotting phyla electivity ####
+
+
+### 2.3.1. Chesson's ####
+phyla_chesson <- as.data.frame(phyla.indices$Chesson)
+
+colnames(phyla_chesson)
+
+phyla_chesson_long <-
+  phyla_chesson %>%
+  pivot_longer(
+    cols = d__Bacteria.p__Armatimonadota:d__Bacteria.__combo,
+    names_to = "ASV",
+    values_to = "Chesson"
+  )
+
+write.csv(phyla_chesson_long, file = "phyla_chesson_long.csv")
+
+# View(phyla_chesson_long_plotting)
+
+write.csv(phyla_chesson_long_plotting, file = "phyla_chesson_long_plotting.csv")
+
+phyla_chesson_long_plotting <- 
+  phyla_chesson_long %>%
+  group_by(ASV) %>%
+  summarize(mean.Chesson = mean(Chesson, na.rm = TRUE),
+            sd.Chesson = sd(Chesson, na.rm = TRUE),
+            n.Chesson = n()) %>%
+  mutate(se.Chesson = sd.Chesson / sqrt(n.Chesson),
+         lower.ci.Chesson = mean.Chesson - qt(1-(0.05/2), n.Chesson-1) * se.Chesson, 
+         upper.ci.Chesson = mean.Chesson + qt(1-(0.05/2), n.Chesson-1) * se.Chesson)
+
+
+ggplot(data = phyla_chesson_long_plotting, aes(x = ASV, y = mean.Chesson, ymin = lower.ci.Chesson, ymax = upper.ci.Chesson)) +
+  geom_pointrange(fatten = 3, col = "darkgreen") +
+  coord_flip() +
+  geom_hline(yintercept = (1/(ncol(phyla_available)-1)), lty = 2) +
+  xlab("Bacteria (Phyla)") +
+  ylab("Chesson's Electivity Index (95% CI)") +
+  theme_bw() +
+  scale_x_discrete(labels = c("Unidentified Bacteria", "Abditibacteriota", "Acidobacteriota", "Actinobacteriota", "Armatimonadota", "Bacteroidota", "Bdellovibrionota", "Caldatribacteriota", "Campilobacterota", "Chloroflexi", "Cloacimonadota", "Cyanobacteria", "Deferribacterota", "Deinococcota", "Dependentiae", "Desulfobacterota", "Elusimicrobiota", "Fibrobacterota", "Firmicutes", "Fusobacteriota", "Gemmatimonadota", "Halanaerobiaeota", "Latescibacterota", "Margulisbacteria", "Methylomirabilota", "Myxococcota", "Nitrospirota", "Patescibacteria", "Planctomycetota", "Proteobacteria", "RCP2.54", "Rs.K70_termite_group", "Synergistota",  "Thermotogota", "Verrucomicrobiota", "WPS.2", "Unassigned Bacteria")) +
+  theme(axis.title = element_text(size = 14),
+        axis.text.y = element_text(size = 6))
+
+
+
+# save as portrait 6x6
+
+
+
+# It is possible to remove phyla that are not found in mite guts (but are found on feathers) 
+phyla_chesson_long_plotting_to_remove <- c("Unassigned.__","d__Bacteria.p__WPS.2","d__Bacteria.p__Synergistota","d__Bacteria.p__Thermotogota", "d__Bacteria.p__Rs.K70_termite_group","d__Bacteria.p__RCP2.54","d__Bacteria.p__Nitrospirota", "d__Bacteria.p__Myxococcota", "d__Bacteria.p__Methylomirabilota", "d__Bacteria.p__Margulisbacteria", "d__Bacteria.p__Latescibacterota", "d__Bacteria.p__Halanaerobiaeota", "d__Bacteria.p__Gemmatimonadota", "d__Bacteria.p__Fusobacteriota", "d__Bacteria.p__Fibrobacterota", "d__Bacteria.p__Elusimicrobiota", "d__Bacteria.p__Desulfobacterota","d__Bacteria.p__Dependentiae", "d__Bacteria.p__Deinococcota", "d__Bacteria.p__Deferribacterota", "d__Bacteria.p__Cloacimonadota", "d__Bacteria.p__Campilobacterota", "d__Bacteria.p__Caldatribacteriota", "d__Bacteria.p__Bdellovibrionota", "d__Bacteria.p__Armatimonadota", "d__Bacteria.p__Abditibacteriota")
+
+phyla_chesson_long_plotting_curated <- phyla_chesson_long_plotting[!phyla_chesson_long_plotting$ASV %in% phyla_chesson_long_plotting_to_remove,]
+
+ggplot(data = phyla_chesson_long_plotting_curated, aes(x = ASV, y = mean.Chesson, ymin = lower.ci.Chesson, ymax = upper.ci.Chesson)) +
+  geom_pointrange(fatten = 5, col = "darkgreen") +
+  coord_flip() +
+  geom_hline(yintercept = (1/(ncol(phyla_available)-1)), lty = 2) +
+  xlab("Bacteria (Phyla)") +
+  ylab("Chesson Electivity Index (95% CI)") +
+  theme_bw() +
+  scale_x_discrete(labels = c("Unidentified Bacteria", "Acidobacteriota", "Actinobacteriota", "Bacteroidota", "Chloroflexi", "Cyanobacteria", "Firmicutes", "Patescibacteria", "Planctomycetota", "Proteobacteria", "Verrucomicrobiota")) +
+  theme(axis.title = element_text(size = 14))
+
+
+
+
+
+
+
+
+
+### 2.3.2. Vanderploeg and Scavia's ####
+phyla_vs <- as.data.frame(phyla.indices$VanderploegScavia)
+
+phyla_vs_long <-
+  phyla_vs %>%
+  pivot_longer(
+    cols = d__Bacteria.p__Armatimonadota:d__Bacteria.__combo,
+    names_to = "ASV",
+    values_to = "VanderploegScavia"
+  )
+
+# View(phyla_vs_long)
+
+write.csv(phyla_vs_long, file = "phyla_vs_long.csv")
+
+
+phyla_vs_long_plotting <- 
+  phyla_vs_long %>%
+  group_by(ASV) %>%
+  summarize(mean.VanderploegScavia = mean(VanderploegScavia, na.rm = TRUE),
+            sd.VanderploegScavia = sd(VanderploegScavia, na.rm = TRUE),
+            n.VanderploegScavia = n()) %>%
+  mutate(se.VanderploegScavia = sd.VanderploegScavia / sqrt(n.VanderploegScavia),
+         lower.ci.VanderploegScavia = mean.VanderploegScavia - qt(1-(0.05/2), n.VanderploegScavia-1) * se.VanderploegScavia, 
+         upper.ci.VanderploegScavia = mean.VanderploegScavia + qt(1-(0.05/2), n.VanderploegScavia-1) * se.VanderploegScavia)
+
+
+write.csv(phyla_vs_long_plotting, file = "phyla_vs_long_plotting.csv")
+
+
+
+ggplot(data = phyla_vs_long_plotting, aes(x = ASV, y = mean.VanderploegScavia, ymin = lower.ci.VanderploegScavia, ymax = upper.ci.VanderploegScavia)) +
+  geom_pointrange(fatten = 3, col = "darkgreen") +
+  coord_flip() +
+  geom_hline(yintercept = 0, lty = 2) +
+  xlab("Bacteria (Phyla)") +
+  ylab("Vanderploeg and Scavia's Relativized Electivity Index (95% CI)") +
+  theme_bw() +
+  scale_x_discrete(labels = c("Unidentified Bacteria", "Abditibacteriota", "Acidobacteriota", "Actinobacteriota", "Armatimonadota", "Bacteroidota", "Bdellovibrionota", "Caldatribacteriota", "Campilobacterota", "Chloroflexi", "Cloacimonadota", "Cyanobacteria", "Deferribacterota", "Deinococcota", "Dependentiae", "Desulfobacterota", "Elusimicrobiota", "Fibrobacterota", "Firmicutes", "Fusobacteriota", "Gemmatimonadota", "Halanaerobiaeota", "Latescibacterota", "Margulisbacteria", "Methylomirabilota", "Myxococcota", "Nitrospirota", "Patescibacteria", "Planctomycetota", "Proteobacteria", "RCP2.54", "Rs.K70_termite_group", "Synergistota",  "Thermotogota", "Verrucomicrobiota", "WPS.2", "Unassigned Bacteria")) +
+  theme(axis.title = element_text(size = 14),
+        axis.text.y = element_text(size = 6))
+
+# save as portrait 7x7
+
+
+
+
+
+
+
+
+
+
+### 2.3.3. Forage Ratio ####
+phyla_forage <- as.data.frame(phyla.indices$ForageRatio)
+
+phyla_forage_long <-
+  phyla_forage %>%
+  pivot_longer(
+    cols = d__Bacteria.p__Armatimonadota:d__Bacteria.__combo,
+    names_to = "ASV",
+    values_to = "ForageRatio"
+  )
+
+# View(phyla_forage_long)
+
+phyla_forage_long_plotting <- 
+  phyla_forage_long %>%
+  group_by(ASV) %>%
+  summarize(mean.ForageRatio = mean(ForageRatio, na.rm = TRUE),
+            sd.ForageRatio = sd(ForageRatio, na.rm = TRUE),
+            n.ForageRatio = n()) %>%
+  mutate(se.ForageRatio = sd.ForageRatio / sqrt(n.ForageRatio),
+         lower.ci.ForageRatio = mean.ForageRatio - qt(1-(0.05/2), n.ForageRatio-1) * se.ForageRatio, 
+         upper.ci.ForageRatio = mean.ForageRatio + qt(1-(0.05/2), n.ForageRatio-1) * se.ForageRatio)
+
+write.csv(phyla_forage_long_plotting, file = "phyla_forage_long_plotting.csv")
+
+
+ggplot(data = phyla_forage_long_plotting, aes(x = ASV, y = mean.ForageRatio, ymin = lower.ci.ForageRatio, ymax = upper.ci.ForageRatio)) +
+  geom_pointrange(fatten = 3, col = "darkgreen") +
+  coord_flip() +
+  geom_hline(yintercept = 1, lty = 2) +
+  xlab("Bacteria (Phyla)") +
+  ylab("Forage Ratio (95% CI)") +
+  theme_bw() +
+  scale_x_discrete(labels = c("Unidentified Bacteria", "Abditibacteriota", "Acidobacteriota", "Actinobacteriota", "Armatimonadota", "Bacteroidota", "Bdellovibrionota", "Caldatribacteriota", "Campilobacterota", "Chloroflexi", "Cloacimonadota", "Cyanobacteria", "Deferribacterota", "Deinococcota", "Dependentiae", "Desulfobacterota", "Elusimicrobiota", "Fibrobacterota", "Firmicutes", "Fusobacteriota", "Gemmatimonadota", "Halanaerobiaeota", "Latescibacterota", "Margulisbacteria", "Methylomirabilota", "Myxococcota", "Nitrospirota", "Patescibacteria", "Planctomycetota", "Proteobacteria", "RCP2.54", "Rs.K70_termite_group", "Synergistota",  "Thermotogota", "Verrucomicrobiota", "WPS.2", "Unassigned Bacteria")) +
+  theme(axis.title = element_text(size = 14),
+        axis.text.y = element_text(size = 6))
+
+# save as portrait 6x6
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 3. Family level ####
+## 3.1. Load family data ####
+family_consumed <- read.csv("16S_grouped-filtered-decontam-bio_samples-silva-level-5_nomissing_relabun_curated_MaAsLin2_dietr_paired_consumed.csv", header = TRUE)
+ncol(family_consumed)
+family_consumed[3:276] <- lapply(family_consumed[3:276], as.numeric)
+
+family_available <- read.csv("16S_grouped-filtered-decontam-bio_samples-silva-level-5_nomissing_relabun_curated_MaAsLin2_dietr_paired_available.csv", header = TRUE)
+ncol(family_available)
+family_available[2:275] <- lapply(family_available[2:275], as.numeric)
+
+## 3.2. Calculate family electivity ####
+
+family.indices <- Electivity(family_consumed, family_available, Indices = c("ForageRatio", "Ivlev", "Strauss", "JacobsQ", "JacobsD", "Chesson", "VanderploegScavia"), LogQ = TRUE, CalcAbundance = FALSE, Depleting = FALSE)
+
+# plot example one...
+PlotElectivity(family.indices, Indices = "Chesson")
+
+
+### 3.2.1. Get means for electivity indices ####
+
+colnames(family_available)
+
+family.indices$ForageRatio %>%
+  rowwise(Record) %>%
+  summarise(m = mean(c_across(d__Bacteria.p__Armatimonadota.c__Fimbriimonadia.o__Fimbriimonadales.f__Fimbriimonadaceae:d__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Defluviitaleaceae), na.rm = TRUE))
+
+family.indices$VanderploegScavia %>%
+  rowwise(Record) %>%
+  summarise(m = mean(c_across(d__Bacteria.p__Armatimonadota.c__Fimbriimonadia.o__Fimbriimonadales.f__Fimbriimonadaceae:d__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Defluviitaleaceae), na.rm = TRUE))
+
+family.indices$Chesson %>%
+  rowwise(Record) %>%
+  summarise(m = mean(c_across(d__Bacteria.p__Armatimonadota.c__Fimbriimonadia.o__Fimbriimonadales.f__Fimbriimonadaceae:d__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Defluviitaleaceae), na.rm = TRUE))
+
+
+
+
+
+
+## 3.3. Plotting family electivity ####
+
+
+### 3.3.1. Chesson's ####
+family_chesson <- as.data.frame(family.indices$Chesson)
+
+colnames(family_chesson)
+
+family_chesson_long <-
+  family_chesson %>%
+  pivot_longer(
+    cols = d__Bacteria.p__Armatimonadota.c__Fimbriimonadia.o__Fimbriimonadales.f__Fimbriimonadaceae:d__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Defluviitaleaceae,
+    names_to = "ASV",
+    values_to = "Chesson"
+  )
+
+family_chesson_long_plotting <- 
+  family_chesson_long %>%
+  group_by(ASV) %>%
+  summarize(mean.Chesson = mean(Chesson, na.rm = TRUE),
+            sd.Chesson = sd(Chesson, na.rm = TRUE),
+            n.Chesson = n()) %>%
+  mutate(se.Chesson = sd.Chesson / sqrt(n.Chesson),
+         lower.ci.Chesson = mean.Chesson - qt(1-(0.05/2), n.Chesson-1) * se.Chesson, 
+         upper.ci.Chesson = mean.Chesson + qt(1-(0.05/2), n.Chesson-1) * se.Chesson)
+
+# View(family_chesson_long_plotting)
+
+write.csv(family_chesson_long_plotting, file = "family_chesson_long_plotting.csv")
+
+
+ggplot(data = family_chesson_long_plotting, aes(x = ASV, y = mean.Chesson, ymin = lower.ci.Chesson, ymax = upper.ci.Chesson)) +
+  geom_pointrange(fatten = 3, col = "darkgreen") +
+  coord_flip() +
+  geom_hline(yintercept = (1/(ncol(family_available)-1)), lty = 2) +
+  xlab("Bacteria (family)") +
+  ylab("Chesson's Electivity Index (95% CI)") +
+  theme_bw() +
+  theme(axis.title = element_text(size = 14),
+        axis.text.y = element_text(size = 6))
+
+# saved 16x10 portrait
+
+
+# filter out NAs and zeros for plot
+family_chesson_long_plotting_nozero <- 
+  family_chesson_long_plotting %>%
+  na.omit() %>%
+  filter(if_all(everything(.), ~. != 0))
+
+
+ggplot(data = family_chesson_long_plotting_nozero, aes(x = ASV, y = mean.Chesson, ymin = lower.ci.Chesson, ymax = upper.ci.Chesson)) +
+  geom_pointrange(fatten = 3, col = "darkgreen") +
+  coord_flip() +
+  geom_hline(yintercept = (1/(ncol(family_available)-1)), lty = 2) +
+  xlab("Bacteria (family)") +
+  ylab("Chesson's Electivity Index (95% CI)") +
+  theme_bw() +
+  theme(axis.title = element_text(size = 14),
+        axis.text.y = element_text(size = 6))
+
+# saved as 6x10 landscape
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 3.3.2. Vanderploeg and Scavia's ####
+
+family_vs <- as.data.frame(family.indices$VanderploegScavia)
+
+colnames(family_vs)
+
+family_vs_long <-
+  family_vs %>%
+  pivot_longer(
+    cols = d__Bacteria.p__Armatimonadota.c__Fimbriimonadia.o__Fimbriimonadales.f__Fimbriimonadaceae:d__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Defluviitaleaceae,
+    names_to = "ASV",
+    values_to = "vs"
+  )
+
+write.csv(family_vs_long, file = "family_vs_long.csv")
+
+
+family_vs_long_plotting <- 
+  family_vs_long %>%
+  group_by(ASV) %>%
+  summarize(mean.vs = mean(vs, na.rm = TRUE),
+            sd.vs = sd(vs, na.rm = TRUE),
+            n.vs = n()) %>%
+  mutate(se.vs = sd.vs / sqrt(n.vs),
+         lower.ci.vs = mean.vs - qt(1-(0.05/2), n.vs-1) * se.vs, 
+         upper.ci.vs = mean.vs + qt(1-(0.05/2), n.vs-1) * se.vs)
+
+# View(family_vs_long_plotting)
+
+write.csv(family_vs_long_plotting, file = "family_vs_long_plotting.csv")
+
+
+
+ggplot(data = family_vs_long_plotting, aes(x = ASV, y = mean.vs, ymin = lower.ci.vs, ymax = upper.ci.vs)) +
+  geom_pointrange(fatten = 3, col = "darkgreen") +
+  coord_flip() +
+  geom_hline(yintercept = 0, lty = 2) +
+  xlab("Bacteria (family)") +
+  ylab("Vanderploeg and Scavia's Relativized Electivity Index (95% CI)") +
+  theme_bw() +
+  theme(axis.title = element_text(size = 14),
+        axis.text.y = element_text(size = 6))
+
+# saved 16x10 portrait
+
+
+# filter out NAs and zeros (aka -1 for VS) for plot
+family_vs_long_plotting_nozero <- 
+  family_vs_long_plotting %>%
+  na.omit() %>%
+  filter(if_all(everything(.), ~. != -1))
+
+
+ggplot(data = family_vs_long_plotting_nozero, aes(x = ASV, y = mean.vs, ymin = lower.ci.vs, ymax = upper.ci.vs)) +
+  geom_pointrange(fatten = 3, col = "darkgreen") +
+  coord_flip() +
+  geom_hline(yintercept = 0, lty = 2) +
+  xlab("Bacteria (family)") +
+  ylab("Vanderploeg and Scavia's Relativized Electivity Index (95% CI)") +
+  theme_bw() +
+  theme(axis.title = element_text(size = 14),
+        axis.text.y = element_text(size = 6))
+
+# saved as 6x10 landscape
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 3.3.3. Forage Ratio ####
+family_forage <- as.data.frame(family.indices$ForageRatio)
+
+
+colnames(family_forage)
+
+family_forage_long <-
+  family_forage %>%
+  pivot_longer(
+    cols = d__Bacteria.p__Armatimonadota.c__Fimbriimonadia.o__Fimbriimonadales.f__Fimbriimonadaceae:d__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Defluviitaleaceae,
+    names_to = "ASV",
+    values_to = "forage"
+  )
+
+family_forage_long_plotting <- 
+  family_forage_long %>%
+  group_by(ASV) %>%
+  summarize(mean.forage = mean(forage, na.rm = TRUE),
+            sd.forage = sd(forage, na.rm = TRUE),
+            n.forage = n()) %>%
+  mutate(se.forage = sd.forage / sqrt(n.forage),
+         lower.ci.forage = mean.forage - qt(1-(0.05/2), n.forage-1) * se.forage, 
+         upper.ci.forage = mean.forage + qt(1-(0.05/2), n.forage-1) * se.forage)
+
+# View(family_forage_long_plotting)
+
+write.csv(family_forage_long_plotting, file = "family_forage_long_plotting.csv")
+
+
+ggplot(data = family_forage_long_plotting, aes(x = ASV, y = mean.forage, ymin = lower.ci.forage, ymax = upper.ci.forage)) +
+  geom_pointrange(fatten = 3, col = "darkgreen") +
+  coord_flip() +
+  geom_hline(yintercept = 1, lty = 2) +
+  xlab("Bacteria (family)") +
+  ylab("Forage Ratio (95% CI)") +
+  theme_bw() +
+  theme(axis.title = element_text(size = 14),
+        axis.text.y = element_text(size = 6))
+
+# saved 16x10 portrait
+
+
+# filter out NAs and zeros for plot
+family_forage_long_plotting_nozero <- 
+  family_forage_long_plotting %>%
+  na.omit() %>%
+  filter(if_all(everything(.), ~. != 0))
+
+
+ggplot(data = family_forage_long_plotting_nozero, aes(x = ASV, y = mean.forage, ymin = lower.ci.forage, ymax = upper.ci.forage)) +
+  geom_pointrange(fatten = 3, col = "darkgreen") +
+  coord_flip() +
+  geom_hline(yintercept = 1, lty = 2) +
+  xlab("Bacteria (family)") +
+  ylab("Forage Ratio (95% CI)") +
+  theme_bw() +
+  theme(axis.title = element_text(size = 14),
+        axis.text.y = element_text(size = 6))
+
+# saved as 6x10 landscape
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 4. Genus level ####
+## 4.1. Load genus data ####
+genus_consumed <- read.csv("16S_grouped-filtered-decontam-bio_samples-silva-level-6_nomissing_relabun_curated_MaAsLin2_dietr_paired_consumed.csv", header = TRUE)
+ncol(genus_consumed)
+genus_consumed[3:501] <- lapply(genus_consumed[3:501], as.numeric)
+
+genus_available <- read.csv("16S_grouped-filtered-decontam-bio_samples-silva-level-6_nomissing_relabun_curated_MaAsLin2_dietr_paired_available.csv", header = TRUE)
+ncol(genus_available)
+genus_available[2:500] <- lapply(genus_available[2:500], as.numeric)
+
+
+
+## 4.2. Calculate genus electivity ####
+
+genus.indices <- Electivity(genus_consumed, genus_available, Indices = c("ForageRatio", "Ivlev", "Strauss", "JacobsQ", "JacobsD", "Chesson", "VanderploegScavia"), LogQ = TRUE, CalcAbundance = FALSE, Depleting = FALSE)
+
+# plot example one...
+PlotElectivity(genus.indices, Indices = "Chesson")
+
+
+### 4.2.1. Get means for electivity indices ####
+
+colnames(genus_available)
+
+genus.indices$ForageRatio %>%
+  rowwise(Record) %>%
+  summarise(m = mean(c_across(d__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Oscillospiraceae.g__Colidextribacter:d__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Defluviitaleaceae.g__Defluviitaleaceae_UCG.011), na.rm = TRUE))
+
+
+genus.indices$VanderploegScavia %>%
+  rowwise(Record) %>%
+  summarise(m = mean(c_across(d__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Oscillospiraceae.g__Colidextribacter:d__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Defluviitaleaceae.g__Defluviitaleaceae_UCG.011), na.rm = TRUE))
+
+genus.indices$Chesson %>%
+  rowwise(Record) %>%
+  summarise(m = mean(c_across(d__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Oscillospiraceae.g__Colidextribacter:d__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Defluviitaleaceae.g__Defluviitaleaceae_UCG.011), na.rm = TRUE))
+
+
+
+
+
+
+## 4.3. Plotting genus electivity ####
+
+
+### 4.3.1. Chesson's ####
+genus_chesson <- as.data.frame(genus.indices$Chesson)
+
+colnames(genus_chesson)
+
+genus_chesson_long <-
+  genus_chesson %>%
+  pivot_longer(
+    cols = d__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Oscillospiraceae.g__Colidextribacter:d__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Defluviitaleaceae.g__Defluviitaleaceae_UCG.011,
+    names_to = "ASV",
+    values_to = "Chesson"
+  )
+
+
+genus_chesson_long_plotting <- 
+  genus_chesson_long %>%
+  group_by(ASV) %>%
+  summarize(mean.Chesson = mean(Chesson, na.rm = TRUE),
+            sd.Chesson = sd(Chesson, na.rm = TRUE),
+            n.Chesson = n()) %>%
+  mutate(se.Chesson = sd.Chesson / sqrt(n.Chesson),
+         lower.ci.Chesson = mean.Chesson - qt(1-(0.05/2), n.Chesson-1) * se.Chesson, 
+         upper.ci.Chesson = mean.Chesson + qt(1-(0.05/2), n.Chesson-1) * se.Chesson)
+
+# View(genus_chesson_long_plotting)
+
+write.csv(genus_chesson_long_plotting, file = "genus_chesson_long_plotting.csv")
+
+
+ggplot(data = genus_chesson_long_plotting, aes(x = ASV, y = mean.Chesson, ymin = lower.ci.Chesson, ymax = upper.ci.Chesson)) +
+  geom_pointrange(fatten = 3, col = "darkgreen") +
+  coord_flip() +
+  geom_hline(yintercept = (1/(ncol(genus_available)-1)), lty = 2) +
+  xlab("Bacteria (genus)") +
+  ylab("Chesson's Electivity Index (95% CI)") +
+  theme_bw() +
+  theme(axis.title = element_text(size = 14),
+        axis.text.y = element_text(size = 6))
+
+# saved 26x10 portrait
+
+
+
+
+
+# filter out NAs and zeros for plot
+genus_chesson_long_plotting_nozero <- 
+  genus_chesson_long_plotting %>%
+  na.omit() %>%
+  filter(if_all(everything(.), ~. != 0))
+
+
+ggplot(data = genus_chesson_long_plotting_nozero, aes(x = ASV, y = mean.Chesson, ymin = lower.ci.Chesson, ymax = upper.ci.Chesson)) +
+  geom_pointrange(fatten = 3, col = "darkgreen") +
+  coord_flip() +
+  geom_hline(yintercept = (1/(ncol(genus_available)-1)), lty = 2) +
+  xlab("Bacteria (genus)") +
+  ylab("Chesson's Electivity Index (95% CI)") +
+  theme_bw() +
+  theme(axis.title = element_text(size = 14),
+        axis.text.y = element_text(size = 6))
+
+# saved as 6x10 landscape
+
+
+
+
+### 4.3.2. Vanderploeg and Scavia's ####
+
+genus_vs <- as.data.frame(genus.indices$VanderploegScavia)
+
+colnames(genus_vs)
+
+genus_vs_long <-
+  genus_vs %>%
+  pivot_longer(
+    cols = d__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Oscillospiraceae.g__Colidextribacter:d__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Defluviitaleaceae.g__Defluviitaleaceae_UCG.011,
+    names_to = "ASV",
+    values_to = "vs"
+  )
+
+write.csv(genus_vs_long, file = "genus_vs_long.csv")
+
+
+genus_vs_long_plotting <- 
+  genus_vs_long %>%
+  group_by(ASV) %>%
+  summarize(mean.vs = mean(vs, na.rm = TRUE),
+            sd.vs = sd(vs, na.rm = TRUE),
+            n.vs = n()) %>%
+  mutate(se.vs = sd.vs / sqrt(n.vs),
+         lower.ci.vs = mean.vs - qt(1-(0.05/2), n.vs-1) * se.vs, 
+         upper.ci.vs = mean.vs + qt(1-(0.05/2), n.vs-1) * se.vs)
+
+# View(genus_vs_long_plotting)
+
+write.csv(genus_vs_long_plotting, file = "genus_vs_long_plotting.csv")
+
+# Now go through this file and add a color column value by selectivity (manually...)
+genus_vs_long_plotting_colors <- read.csv("genus_vs_long_plotting_20230522.csv", header = TRUE)
+
+
+# all the same color
+
+ggplot(data = genus_vs_long_plotting, aes(x = ASV, y = mean.vs, ymin = lower.ci.vs, ymax = upper.ci.vs)) +
+  geom_pointrange(fatten = 3, col = "darkgreen") +
+  coord_flip() +
+  geom_hline(yintercept = 0, lty = 2) +
+  xlab("Bacteria (genus)") +
+  ylab("Vanderploeg and Scavia's Relativized Electivity Index (95% CI)") +
+  theme_bw() +
+  theme(axis.title = element_text(size = 14),
+        axis.text.y = element_text(size = 6))
+
+# saved 26x12 portrait
+
+
+
+# colored by selectivity
+
+ggplot(data = genus_vs_long_plotting_colors, aes(x = ASV, y = mean.vs, ymin = lower.ci.vs, ymax = upper.ci.vs, col = electivity_category)) +
+  geom_pointrange(fatten = 3) +
+  scale_color_manual(values = c("darkred", "darkgreen", "gray50")) +
+  coord_flip() +
+  geom_hline(yintercept = 0, lty = 2) +
+  xlab("Bacteria (genus)") +
+  ylab("Vanderploeg and Scavia's Relativized Electivity Index (95% CI)") +
+  theme_bw() +
+  theme(axis.title = element_text(size = 14),
+        axis.text.y = element_text(size = 6),
+        legend.position = "none")
+
+# saved 26x12 portrait
+
+
+
+# filter out NAs and zeros (aka -1 for VS) for plot (same colors)
+genus_vs_long_plotting_nozero <- 
+  genus_vs_long_plotting %>%
+  na.omit() %>%
+  filter(if_all(everything(.), ~. != -1))
+
+
+ggplot(data = genus_vs_long_plotting_nozero, aes(x = ASV, y = mean.vs, ymin = lower.ci.vs, ymax = upper.ci.vs)) +
+  geom_pointrange(fatten = 3) +
+  coord_flip() +
+  geom_hline(yintercept = 0, lty = 2) +
+  xlab("Bacteria (genus)") +
+  ylab("Vanderploeg and Scavia's Relativized Electivity Index (95% CI)") +
+  theme_bw() +
+  theme(axis.title = element_text(size = 14),
+        axis.text.y = element_text(size = 6))
+
+# saved as 6x10 landscape
+
+
+
+
+# filter out NAs and zeros (aka -1 for VS) for plot (colors by electivity)
+genus_vs_long_plotting_colors_nozero <- 
+  genus_vs_long_plotting_colors %>%
+  na.omit() %>%
+  filter(if_all(everything(.), ~. != -1))
+
+
+
+ggplot(data = genus_vs_long_plotting_colors_nozero, aes(x = ASV, y = mean.vs, ymin = lower.ci.vs, ymax = upper.ci.vs, col = electivity_category)) +
+  geom_pointrange(fatten = 3) +
+  scale_color_manual(values = c("darkred", "darkgreen", "gray50")) +
+  coord_flip() +
+  geom_hline(yintercept = 0, lty = 2) +
+  xlab("Bacteria (genus)") +
+  ylab("Vanderploeg and Scavia's Relativized Electivity Index (95% CI)") +
+  theme_bw() +
+  theme(axis.title = element_text(size = 14),
+        axis.text.y = element_text(size = 6),
+        legend.position = "none")
+
+
+# saved as 6x11 landscape
+
+
+
+
+# change labels
+
+ggplot(data = genus_vs_long_plotting_colors_nozero, aes(x = ASV, y = mean.vs, ymin = lower.ci.vs, ymax = upper.ci.vs, col = electivity_category)) +
+  geom_pointrange(fatten = 3) +
+  scale_color_manual(values = c("darkred", "darkgreen", "gray50")) +
+  scale_x_discrete(labels = c("Corynebacterium", "Mycobacterium", "Jatrophihabitans", "hgcI_clade", "Candidatus Limnoluna", "Marmoricola", "Nocardioides", "Actinomycetospora", "Hymenobacter", "Flavobacterium", "Solitalea", "Allobaculum", "Enterococcus", "Lactobacillus", "Streptococcus", "Roseisolibacter", "Craurococcus-Caldovatus", "Roseomonas", "Brevundimonas", "Phenylobacterium", "Methylobacterium-Methylorubrum", "Allorhizobium-Neorhizobium-Pararhizobium-Rhizobium", "Bartonella", "Sphingomonas", "Limnobacter", "Polynucleobacter", "Delftia", "Methylotenera", "Massilia", "Escherichia.Shigella", "Pseudomonas", "Nevskia", "Candidatus Omnitrophus")) +
+  coord_flip() +
+  geom_hline(yintercept = 0, lty = 2) +
+  xlab("Bacteria (genus)") +
+  ylab("Vanderploeg and Scavia's Relativized Electivity Index (95% CI)") +
+  theme_bw() +
+  theme(axis.title = element_text(size = 14),
+        axis.text.y = element_text(size = 6),
+        legend.position = "none")
+
+
+# saved as 6x8 landscape
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 4.3.3. Forage Ratio ####
+genus_forage <- as.data.frame(genus.indices$ForageRatio)
+
+
+colnames(genus_forage)
+
+genus_forage_long <-
+  genus_forage %>%
+  pivot_longer(
+    cols = d__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Oscillospiraceae.g__Colidextribacter:d__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Defluviitaleaceae.g__Defluviitaleaceae_UCG.011,
+    names_to = "ASV",
+    values_to = "forage"
+  )
+
+
+
+
+genus_forage_long_plotting <- 
+  genus_forage_long %>%
+  group_by(ASV) %>%
+  summarize(mean.forage = mean(forage, na.rm = TRUE),
+            sd.forage = sd(forage, na.rm = TRUE),
+            n.forage = n()) %>%
+  mutate(se.forage = sd.forage / sqrt(n.forage),
+         lower.ci.forage = mean.forage - qt(1-(0.05/2), n.forage-1) * se.forage, 
+         upper.ci.forage = mean.forage + qt(1-(0.05/2), n.forage-1) * se.forage)
+
+# View(genus_forage_long_plotting)
+
+write.csv(genus_forage_long_plotting, file = "genus_forage_long_plotting.csv")
+
+
+
+ggplot(data = genus_forage_long_plotting, aes(x = ASV, y = mean.forage, ymin = lower.ci.forage, ymax = upper.ci.forage)) +
+  geom_pointrange(fatten = 3, col = "darkgreen") +
+  coord_flip() +
+  geom_hline(yintercept = 1, lty = 2) +
+  xlab("Bacteria (genus)") +
+  ylab("Forage Ratio (95% CI)") +
+  theme_bw() +
+  theme(axis.title = element_text(size = 14),
+        axis.text.y = element_text(size = 6))
+
+# saved 26x10 portrait
+
+
+
+
+# filter out NAs and zeros for plot
+genus_forage_long_plotting_nozero <- 
+  genus_forage_long_plotting %>%
+  na.omit() %>%
+  filter(if_all(everything(.), ~. != 0))
+
+
+ggplot(data = genus_forage_long_plotting_nozero, aes(x = ASV, y = mean.forage, ymin = lower.ci.forage, ymax = upper.ci.forage)) +
+  geom_pointrange(fatten = 3, col = "darkgreen") +
+  coord_flip() +
+  geom_hline(yintercept = 1, lty = 2) +
+  xlab("Bacteria (genus)") +
+  ylab("Forage Ratio (95% CI)") +
+  theme_bw() +
+  theme(axis.title = element_text(size = 14),
+        axis.text.y = element_text(size = 6))
+
+# saved as 6x10 landscape

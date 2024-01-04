@@ -1,0 +1,17 @@
+"sample-id","bird_sex","bird_age","num_mites_feather","num_mites_total","paired_for_electivity","VS_electivity_d__Bacteria.p__Proteobacteria.c__Alphaproteobacteria.o__Sphingomonadales.f__Sphingomonadaceae.g__Sphingomonas","VS_electivity_d__Bacteria.p__Proteobacteria.c__Alphaproteobacteria.o__Rhizobiales.f__Rhizobiaceae.g__Bartonella","VS_electivity_d__Bacteria.p__Actinobacteriota.c__Actinobacteria.o__Propionibacteriales.f__Propionibacteriaceae.g__Friedmanniella","VS_electivity_d__Bacteria.p__Bacteroidota.c__Bacteroidia.o__Cytophagales.f__Hymenobacteraceae.g__Hymenobacter","VS_electivity_d__Bacteria.p__Actinobacteriota.c__Actinobacteria.o__Micrococcales.f__Intrasporangiaceae.g__Tetrasphaera","VS_electivity_d__Bacteria.p__Firmicutes.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__Lactobacillus","VS_electivity_d__Bacteria.p__Bacteroidota.c__Bacteroidia.o__Sphingobacteriales.f__Sphingobacteriaceae.g__Mucilaginibacter","VS_electivity_d__Bacteria.p__Proteobacteria.c__Gammaproteobacteria.o__Burkholderiales.f__Methylophilaceae.g__Methylotenera","VS_electivity_d__Bacteria.p__Proteobacteria.c__Alphaproteobacteria.o__Sphingomonadales.f__Sphingomonadaceae.g__Novosphingobium","VS_electivity_d__Bacteria.p__Proteobacteria.c__Gammaproteobacteria.o__Pseudomonadales.f__Moraxellaceae.g__Perlucidibaca","VS_electivity_AVERAGE"
+"PM01","Male","ASY",54,510,"yes",0.860502312623888,0.993076558937173,-1,-0.202921227239521,"NA",-1,-1,0.362079230503546,-1,"NA",-0.248407890646864
+"PM02","Male","ASY",49,164,"yes",0.969414398826347,0.992709542038602,-1,-1,"NA","NA",-1,-1,-1,-1,-0.504734507391881
+"PM03","Male","ASY",19,297,"yes",0.960984108428758,0.994119481869967,"NA",-1,"NA","NA",-1,-1,-1,-1,-0.434985201385896
+"PM07","Female","SY",15,204,"yes",0.795163817570573,0.995023302181137,-1,-1,"NA","NA",-1,"NA","NA","NA",-0.241962576049658
+"PM11","Female","ASY",93,263,"yes",0.972911849048654,0.987895912665493,"NA",0.755078559716244,"NA",-1,-1,-1,-1,-1,-0.285514209821201
+"PM12","Female","ASY",41,318,"yes",0.945429143557603,-1,-1,-1,"NA",-1,-1,-1,-1,-1,-0.783841206271377
+"PM13","Female","SY",33,56,"yes",0.996,"NA","NA",-1,"NA","NA",-1,-1,-1,"NA",-0.6008
+"PM16","Female","ASY",35,125,"yes",0.959557562550014,0.994711169835549,-1,-1,"NA","NA",-1,-1,-1,-1,-0.505716408451805
+"PM17","Male","SY",63,170,"yes",0.978053532241927,-1,"NA",-1,"NA","NA",-1,-1,-1,"NA",-0.670324411293012
+"PM18","Male","ASY",79,491,"yes",0.973467866675687,0.966165950794026,-1,0.301269927081331,"NA","NA",-1,"NA","NA","NA",0.048180748910209
+"PM21","Female","ASY",44,136,"yes",0.908258892578528,0.972512754839386,-1,-1,"NA",0.89911888514485,"NA",-1,-1,"NA",-0.174301352491034
+"PM22","Female","SY",1,38,"yes",0.93648406511508,"NA","NA",-1,"NA","NA","NA",-1,"NA","NA",-0.354505311628307
+"PM23","Female","SY",6,41,"yes",0.951744649750597,"NA",-1,-1,"NA","NA","NA","NA","NA",-1,-0.512063837562351
+"PM26","Male","SY",90,150,"yes",0.906733771489198,0.975408635856474,"NA",-1,"NA","NA",-1,-1,-1,"NA",-0.352976265442388
+"PM27","Male","SY",7,182,"yes",0.880686668189176,0.991925447005202,-1,-1,-1,0.761155845030517,"NA","NA",-1,-1,-0.295779004971888
+"PM30","Female","SY",135,397,"yes",0.967058055636905,0.990739297338757,"NA",-1,"NA",0.774641049827843,"NA",-1,-1,-1,-0.181080228170928
