@@ -1,0 +1,60 @@
+index,k__Fungi;p__Basidiomycota,k__Fungi;p__Ascomycota,k__Fungi;__,k__Fungi;p__Fungi_phy_Incertae_sedis,k__Fungi;p__Mortierellomycota,k__Fungi;p__Rozellomycota,k__Fungi;p__Mucoromycota,k__Fungi;p__Blastocladiomycota,k__Fungi;p__Chytridiomycota,bio_or_control,category_broad,category_specific,bird_id,bird_sex,bird_age,capture_date,num_mites_fm,num_mites_m,mite_sp_fm,mite_sp_m
+PF01,331.0,1628.0,209.0,5.0,0.0,0.0,0.0,0.0,0.0,biological,feather,feather,Ja,Male,ASY,04/30/21,54,na,Amerodectes,na
+PF02,215.0,4450.0,259.0,12.0,0.0,0.0,0.0,0.0,0.0,biological,feather,feather,Swamp Roach,Male,ASY,04/30/21,49,na,Amerodectes,na
+PF03,29.0,105.0,14.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,feather,feather,Jaren,Male,ASY,04/30/21,19,na,Amerodectes,na
+PF04,173.0,3208.0,217.0,17.0,0.0,0.0,0.0,0.0,0.0,biological,feather,feather,Club Sandwich,Male,ASY,04/30/21,3,na,Amerodectes,na
+PF05,651.0,8771.0,772.0,19.0,6.0,0.0,0.0,0.0,0.0,biological,feather,feather,Jonas,Male,ASY,04/30/21,41,na,Amerodectes and Proctophyllodes,na
+PF06,101.0,888.0,33.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,feather,feather,Flatten the Curve,Male,ASY,05/05/21,31,na,Amerodectes and Proctophyllodes,na
+PF07,217.0,2893.0,360.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,feather,feather,Loretta,Female,SY,05/05/21,15,na,Amerodectes,na
+PF08,155.0,1154.0,57.0,12.0,3.0,0.0,11.0,0.0,0.0,biological,feather,feather,Cash,Male,ASY,05/06/21,43,na,Amerodectes and Proctophyllodes,na
+PF09,76.0,3287.0,88.0,26.0,0.0,0.0,0.0,0.0,0.0,biological,feather,feather,Mary Girl,Female,ASY,05/06/21,8,na,Amerodectes,na
+PF10,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,feather,feather,Ms. Zip,Female,ASY,05/06/21,116,na,Amerodectes,na
+PF11,168.0,3320.0,253.0,22.0,0.0,0.0,0.0,0.0,0.0,biological,feather,feather,Dolly,Female,ASY,05/06/21,93,na,Amerodectes,na
+PF12,149.0,1755.0,107.0,12.0,0.0,0.0,0.0,0.0,0.0,biological,feather,feather,Shania,Female,ASY,05/06/21,41,na,Amerodectes,na
+PF13,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,feather,feather,Patsy,Female,SY,05/06/21,33,na,Amerodectes and Proctophyllodes,na
+PF14,69.0,2441.0,86.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,feather,feather,Reba,Female,SY,05/06/21,267,na,Amerodectes,na
+PF15,3.0,497.0,20.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,feather,feather,DeAnthony,Male,SY,05/12/21,0,0,na,na
+PF16,152.0,5374.0,161.0,2.0,0.0,0.0,0.0,0.0,0.0,biological,feather,feather,Lucinda,Female,ASY,05/06/21,35,na,Amerodectes,na
+PF17,9778.0,14673.0,763.0,40.0,15.0,0.0,0.0,0.0,0.0,biological,feather,feather,Rebound,Male,SY,05/12/21,63,na,Amerodectes,na
+PF18,98.0,1112.0,139.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,feather,feather,Desmond,Male,ASY,05/12/21,79,na,Amerodectes,na
+PF19,3537.0,120831.0,4691.0,76.0,0.0,7.0,33.0,0.0,0.0,biological,feather,feather,DB,Male,U,05/12/21,6,na,Amerodectes,na
+PF20,3180.0,90813.0,6124.0,274.0,25.0,0.0,0.0,0.0,0.0,biological,feather,feather,CB,Female,SY,05/12/21,37,na,Amerodectes,na
+PF21,228.0,8662.0,414.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,feather,feather,Maren,Female,ASY,05/13/21,44,na,Amerodectes and Proctophyllodes,na
+PF22,228.0,4667.0,1208.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,feather,feather,Rosanne,Female,SY,05/13/21,1,na,Proctophyllodes,na
+PF23,87.0,1516.0,96.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,feather,feather,Martina,Female,SY,05/13/21,6,na,Proctophyllodes,na
+PF24,179.0,12187.0,1016.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,feather,feather,Yellow B,Female,ASY,05/13/21,76,na,Amerodectes and Proctophyllodes,na
+PF25,7.0,32.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,feather,feather,Tony,Male,SY,05/14/21,267,na,Amerodectes and Proctophyllodes,na
+PF26,437.0,13302.0,1265.0,0.0,0.0,0.0,0.0,0.0,11.0,biological,feather,feather,Tyus,Male,SY,05/14/21,90,na,Amerodectes and Proctophyllodes,na
+PF27,490.0,34862.0,1499.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,feather,feather,Grayson,Male,SY,05/14/21,7,na,Proctophyllodes,na
+PF28,150.0,5219.0,592.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,feather,feather,Matt Foley,Male,SY,05/14/21,12,na,Amerodectes,na
+PF29,486.0,30007.0,2792.0,11.0,0.0,3.0,0.0,0.0,0.0,biological,feather,feather,Kayce,Female,ASY,05/13/21,1,na,Proctophyllodes,na
+PF30,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,feather,feather,Trisha,Female,SY,05/14/21,135,na,Amerodectes,na
+PM01,354.0,625.0,16.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,mites,mites,Ja,Male,ASY,04/30/21,54,54,Amerodectes,Amerodectes
+PM02,161.0,460.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,mites,mites,Swamp Roach,Male,ASY,04/30/21,49,49,Amerodectes,Amerodectes
+PM03,104.0,148.0,18.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,mites,mites,Jaren,Male,ASY,04/30/21,19,19,Amerodectes,Amerodectes
+PM04,5.0,54.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,mites,mites,Club Sandwich,Male,ASY,04/30/21,3,3,Amerodectes,Amerodectes
+PM05,159.0,969.0,127.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,mites,mites,Jonas,Male,ASY,04/30/21,41,41,Amerodectes and Proctophyllodes,Amerodectes and Proctophyllodes
+PM06,59.0,127.0,49.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,mites,mites,Flatten the Curve,Male,ASY,05/05/21,31,31,Amerodectes and Proctophyllodes,Amerodectes and Proctophyllodes
+PM07,490.0,292.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,mites,mites,Loretta,Female,SY,05/05/21,15,15,Amerodectes,Amerodectes
+PM08,23.0,108.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,mites,mites,Cash,Male,ASY,05/05/21,43,43,Amerodectes and Proctophyllodes,Amerodectes and Proctophyllodes
+PM09,56.0,77.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,mites,mites,Mary Girl,Female,ASY,05/06/21,8,8,Amerodectes,Amerodectes
+PM10,153.0,477.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,mites,mites,Ms. Zip,Female,ASY,05/06/21,116,116,Amerodectes,Amerodectes
+PM11,190.0,514.0,163.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,mites,mites,Dolly,Female,ASY,05/06/21,93,93,Amerodectes,Amerodectes
+PM12,145.0,443.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,mites,mites,Shania,Female,ASY,05/06/21,41,41,Amerodectes,Amerodectes
+PM13,18.0,331.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,mites,mites,Patsy,Female,SY,05/06/21,33,33,Amerodectes and Proctophyllodes,Amerodectes and Proctophyllodes
+PM14,122.0,861.0,74.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,mites,mites,Reba,Female,SY,05/06/21,267,267,Amerodectes,Amerodectes
+PM16,312.0,1497.0,0.0,0.0,26.0,0.0,0.0,0.0,0.0,biological,mites,mites,Lucinda,Female,ASY,05/06/21,35,35,Amerodectes,Amerodectes
+PM17,81.0,2372.0,194.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,mites,mites,Rebound,Male,SY,05/12/21,63,63,Amerodectes,Amerodectes
+PM18,351.0,831.0,52.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,mites,mites,Desmond,Male,ASY,05/12/21,79,79,Amerodectes,Amerodectes
+PM19,132.0,713.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,mites,mites,DB,Male,U,05/12/21,6,6,Amerodectes,Amerodectes
+PM20,204.0,1035.0,43.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,mites,mites,CB,Female,SY,05/12/21,37,37,Amerodectes,Amerodectes
+PM21,231.0,3437.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,mites,mites,Maren,Female,ASY,05/13/21,44,44,Amerodectes and Proctophyllodes,Amerodectes and Proctophyllodes
+PM22,219.0,564.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,mites,mites,Rosanne,Female,SY,05/13/21,1,1,Proctophyllodes,Proctophyllodes
+PM23,159.0,463.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,mites,mites,Martina,Female,SY,05/13/21,6,6,Proctophyllodes,Proctophyllodes
+PM24,390.0,642.0,64.0,0.0,0.0,0.0,0.0,160.0,0.0,biological,mites,mites,Yellow B,Female,ASY,05/13/21,76,76,Amerodectes and Proctophyllodes,Amerodectes and Proctophyllodes
+PM25,64.0,1428.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,mites,mites,Tony,Male,SY,05/14/21,267,267,Amerodectes and Proctophyllodes,Amerodectes and Proctophyllodes
+PM26,190.0,799.0,215.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,mites,mites,Tyus,Male,SY,05/14/21,90,90,Amerodectes and Proctophyllodes,Amerodectes and Proctophyllodes
+PM27,101.0,5536.0,2475.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,mites,mites,Grayson,Male,SY,05/14/21,7,7,Proctophyllodes,Proctophyllodes
+PM28,205.0,241.0,421.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,mites,mites,Matt Foley,Male,SY,05/14/21,12,12,Amerodectes,Amerodectes
+PM29,104.0,676.0,22.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,mites,mites,Kayce,Female,ASY,05/13/21,1,1,Proctophyllodes,Proctophyllodes
+PM30,21.0,9386.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,biological,mites,mites,Trisha,Female,SY,05/14/21,135,135,Amerodectes,Amerodectes

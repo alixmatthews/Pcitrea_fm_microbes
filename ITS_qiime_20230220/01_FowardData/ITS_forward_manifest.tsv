@@ -1,0 +1,78 @@
+sample-id	absolute-filepath	bio_or_control	category_broad	category_specific	bird_id	bird_sex	bird_age	capture_date	num_mites_fm	num_mites_m	mite_sp_fm	mite_sp_m
+PM01	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix001-PM01_S24/Alix001-PM01_S24_L001_R1_001.fastq.gz	biological	mites	mites	Ja	Male	ASY	04/30/21	54	54	Amerodectes	Amerodectes
+PF01	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix002-PF01_S25/Alix002-PF01_S25_L001_R1_001.fastq.gz	biological	feather	feather	Ja	Male	ASY	04/30/21	54	na	Amerodectes	na
+PM02	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix003-PM02_S26/Alix003-PM02_S26_L001_R1_001.fastq.gz	biological	mites	mites	Swamp Roach	Male	ASY	04/30/21	49	49	Amerodectes	Amerodectes
+PF02	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix004-PF02_S27/Alix004-PF02_S27_L001_R1_001.fastq.gz	biological	feather	feather	Swamp Roach	Male	ASY	04/30/21	49	na	Amerodectes	na
+PM03	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix005-PM03_S28/Alix005-PM03_S28_L001_R1_001.fastq.gz	biological	mites	mites	Jaren	Male	ASY	04/30/21	19	19	Amerodectes	Amerodectes
+PF03	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix006-PF03_S29/Alix006-PF03_S29_L001_R1_001.fastq.gz	biological	feather	feather	Jaren	Male	ASY	04/30/21	19	na	Amerodectes	na
+PM04	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix007-PM04_S30/Alix007-PM04_S30_L001_R1_001.fastq.gz	biological	mites	mites	Club Sandwich	Male	ASY	04/30/21	3	3	Amerodectes	Amerodectes
+PF04	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix008-PF04_S31/Alix008-PF04_S31_L001_R1_001.fastq.gz	biological	feather	feather	Club Sandwich	Male	ASY	04/30/21	3	na	Amerodectes	na
+PM05	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix009-PM05_S32/Alix009-PM05_S32_L001_R1_001.fastq.gz	biological	mites	mites	Jonas	Male	ASY	04/30/21	41	41	Amerodectes and Proctophyllodes	Amerodectes and Proctophyllodes
+PF05	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix010-PF05_S33/Alix010-PF05_S33_L001_R1_001.fastq.gz	biological	feather	feather	Jonas	Male	ASY	04/30/21	41	na	Amerodectes and Proctophyllodes	na
+PM06	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix011-PM06_S34/Alix011-PM06_S34_L001_R1_001.fastq.gz	biological	mites	mites	Flatten the Curve	Male	ASY	05/05/21	31	31	Amerodectes and Proctophyllodes	Amerodectes and Proctophyllodes
+PF06	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix012-PF06_S35/Alix012-PF06_S35_L001_R1_001.fastq.gz	biological	feather	feather	Flatten the Curve	Male	ASY	05/05/21	31	na	Amerodectes and Proctophyllodes	na
+PM07	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix013-PM07_S36/Alix013-PM07_S36_L001_R1_001.fastq.gz	biological	mites	mites	Loretta	Female	SY	05/05/21	15	15	Amerodectes	Amerodectes
+PF07	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix014-PF07_S37/Alix014-PF07_S37_L001_R1_001.fastq.gz	biological	feather	feather	Loretta	Female	SY	05/05/21	15	na	Amerodectes	na
+WASH01	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix015-WASH01_S38/Alix015-WASH01_S38_L001_R1_001.fastq.gz	control	control	wash_control	wash_control	na	na	na	na	na	na	na
+WASH03	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix016-WASH03_S39/Alix016-WASH03_S39_L001_R1_001.fastq.gz	control	control	wash_control	wash_control	na	na	na	na	na	na	na
+KITA01	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix017-KITA01_S40/Alix017-KITA01_S40_L001_R1_001.fastq.gz	control	control	kit_control	kit_control	na	na	na	na	na	na	na
+AKC01	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix018-AKC01_S41/Alix018-AKC01_S41_L001_R1_001.fastq.gz	control	control	area_control	area_control	na	na	na	na	na	na	na
+PM08	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix019-PM08_S42/Alix019-PM08_S42_L001_R1_001.fastq.gz	biological	mites	mites	Cash	Male	ASY	05/05/21	43	43	Amerodectes and Proctophyllodes	Amerodectes and Proctophyllodes
+PF08	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix020-PF08_S43/Alix020-PF08_S43_L001_R1_001.fastq.gz	biological	feather	feather	Cash	Male	ASY	05/06/21	43	na	Amerodectes and Proctophyllodes	na
+PM09	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix021-PM09_S44/Alix021-PM09_S44_L001_R1_001.fastq.gz	biological	mites	mites	Mary Girl	Female	ASY	05/06/21	8	8	Amerodectes	Amerodectes
+PF09	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix022-PF09_S45/Alix022-PF09_S45_L001_R1_001.fastq.gz	biological	feather	feather	Mary Girl	Female	ASY	05/06/21	8	na	Amerodectes	na
+PM10	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix023-PM10_S46/Alix023-PM10_S46_L001_R1_001.fastq.gz	biological	mites	mites	Ms. Zip	Female	ASY	05/06/21	116	116	Amerodectes	Amerodectes
+PF10	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix024-PF10_S47/Alix024-PF10_S47_L001_R1_001.fastq.gz	biological	feather	feather	Ms. Zip	Female	ASY	05/06/21	116	na	Amerodectes	na
+PM11	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix025-PM11_S48/Alix025-PM11_S48_L001_R1_001.fastq.gz	biological	mites	mites	Dolly	Female	ASY	05/06/21	93	93	Amerodectes	Amerodectes
+PF11	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix026-PF11_S49/Alix026-PF11_S49_L001_R1_001.fastq.gz	biological	feather	feather	Dolly	Female	ASY	05/06/21	93	na	Amerodectes	na
+PM12	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix027-PM12_S50/Alix027-PM12_S50_L001_R1_001.fastq.gz	biological	mites	mites	Shania	Female	ASY	05/06/21	41	41	Amerodectes	Amerodectes
+PF12	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix028-PF12_S51/Alix028-PF12_S51_L001_R1_001.fastq.gz	biological	feather	feather	Shania	Female	ASY	05/06/21	41	na	Amerodectes	na
+PM13	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix029-PM13_S52/Alix029-PM13_S52_L001_R1_001.fastq.gz	biological	mites	mites	Patsy	Female	SY	05/06/21	33	33	Amerodectes and Proctophyllodes	Amerodectes and Proctophyllodes
+PF13	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix030-PF13_S53/Alix030-PF13_S53_L001_R1_001.fastq.gz	biological	feather	feather	Patsy	Female	SY	05/06/21	33	na	Amerodectes and Proctophyllodes	na
+PM14	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix031-PM14_S54/Alix031-PM14_S54_L001_R1_001.fastq.gz	biological	mites	mites	Reba	Female	SY	05/06/21	267	267	Amerodectes	Amerodectes
+PF14	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix032-PF14_S55/Alix032-PF14_S55_L001_R1_001.fastq.gz	biological	feather	feather	Reba	Female	SY	05/06/21	267	na	Amerodectes	na
+PF15	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix033-PF15_S56/Alix033-PF15_S56_L001_R1_001.fastq.gz	biological	feather	feather	DeAnthony	Male	SY	05/12/21	0	0	na	na
+WASH14	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix034-WASH14_S57/Alix034-WASH14_S57_L001_R1_001.fastq.gz	control	control	wash_control	wash_control	na	na	na	na	na	na	na
+KITA02	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix035-KITA02_S58/Alix035-KITA02_S58_L001_R1_001.fastq.gz	control	control	kit_control	kit_control	na	na	na	na	na	na	na
+AKC02	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix036-AKC02_S59/Alix036-AKC02_S59_L001_R1_001.fastq.gz	control	control	area_control	area_control	na	na	na	na	na	na	na
+PM16	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix037-PM16_S60/Alix037-PM16_S60_L001_R1_001.fastq.gz	biological	mites	mites	Lucinda	Female	ASY	05/06/21	35	35	Amerodectes	Amerodectes
+PF16	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix038-PF16_S61/Alix038-PF16_S61_L001_R1_001.fastq.gz	biological	feather	feather	Lucinda	Female	ASY	05/06/21	35	na	Amerodectes	na
+PM17	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix039-PM17_S62/Alix039-PM17_S62_L001_R1_001.fastq.gz	biological	mites	mites	Rebound	Male	SY	05/12/21	63	63	Amerodectes	Amerodectes
+PF17	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix040-PF17_S63/Alix040-PF17_S63_L001_R1_001.fastq.gz	biological	feather	feather	Rebound	Male	SY	05/12/21	63	na	Amerodectes	na
+PM18	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix041-PM18_S64/Alix041-PM18_S64_L001_R1_001.fastq.gz	biological	mites	mites	Desmond	Male	ASY	05/12/21	79	79	Amerodectes	Amerodectes
+PF18	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix042-PF18_S65/Alix042-PF18_S65_L001_R1_001.fastq.gz	biological	feather	feather	Desmond	Male	ASY	05/12/21	79	na	Amerodectes	na
+PM19	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix043-PM19_S66/Alix043-PM19_S66_L001_R1_001.fastq.gz	biological	mites	mites	DB	Male	U	05/12/21	6	6	Amerodectes	Amerodectes
+PF19	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix044-PF19_S67/Alix044-PF19_S67_L001_R1_001.fastq.gz	biological	feather	feather	DB	Male	U	05/12/21	6	na	Amerodectes	na
+PM20	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix045-PM20_S68/Alix045-PM20_S68_L001_R1_001.fastq.gz	biological	mites	mites	CB	Female	SY	05/12/21	37	37	Amerodectes	Amerodectes
+PF20	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix046-PF20_S69/Alix046-PF20_S69_L001_R1_001.fastq.gz	biological	feather	feather	CB	Female	SY	05/12/21	37	na	Amerodectes	na
+H2O	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix047-H2O_S70/Alix047-H2O_S70_L001_R1_001.fastq.gz	control	control	water_control	water_control	na	na	na	na	na	na	na
+ETOH	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix048-ETOH_S71/Alix048-ETOH_S71_L001_R1_001.fastq.gz	control	control	etoh_control	etoh_control	na	na	na	na	na	na	na
+PM21	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix049-PM21_S72/Alix049-PM21_S72_L001_R1_001.fastq.gz	biological	mites	mites	Maren	Female	ASY	05/13/21	44	44	Amerodectes and Proctophyllodes	Amerodectes and Proctophyllodes
+PF21	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix050-PF21_S73/Alix050-PF21_S73_L001_R1_001.fastq.gz	biological	feather	feather	Maren	Female	ASY	05/13/21	44	na	Amerodectes and Proctophyllodes	na
+PM22	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix051-PM22_S74/Alix051-PM22_S74_L001_R1_001.fastq.gz	biological	mites	mites	Rosanne	Female	SY	05/13/21	1	1	Proctophyllodes	Proctophyllodes
+PF22	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix052-PF22_S75/Alix052-PF22_S75_L001_R1_001.fastq.gz	biological	feather	feather	Rosanne	Female	SY	05/13/21	1	na	Proctophyllodes	na
+PM23	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix053-PM23_S76/Alix053-PM23_S76_L001_R1_001.fastq.gz	biological	mites	mites	Martina	Female	SY	05/13/21	6	6	Proctophyllodes	Proctophyllodes
+PF23	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix054-PF23_S77/Alix054-PF23_S77_L001_R1_001.fastq.gz	biological	feather	feather	Martina	Female	SY	05/13/21	6	na	Proctophyllodes	na
+PM24	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix055-PM24_S78/Alix055-PM24_S78_L001_R1_001.fastq.gz	biological	mites	mites	Yellow B	Female	ASY	05/13/21	76	76	Amerodectes and Proctophyllodes	Amerodectes and Proctophyllodes
+PF24	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix056-PF24_S79/Alix056-PF24_S79_L001_R1_001.fastq.gz	biological	feather	feather	Yellow B	Female	ASY	05/13/21	76	na	Amerodectes and Proctophyllodes	na
+PM25	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix057-PM25_S80/Alix057-PM25_S80_L001_R1_001.fastq.gz	biological	mites	mites	Tony	Male	SY	05/14/21	267	267	Amerodectes and Proctophyllodes	Amerodectes and Proctophyllodes
+PF25	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix058-PF25_S81/Alix058-PF25_S81_L001_R1_001.fastq.gz	biological	feather	feather	Tony	Male	SY	05/14/21	267	na	Amerodectes and Proctophyllodes	na
+WASH25	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix059-WASH25_S82/Alix059-WASH25_S82_L001_R1_001.fastq.gz	control	control	wash_control	wash_control	na	na	na	na	na	na	na
+AKC03	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix060-AKC03_S83/Alix060-AKC03_S83_L001_R1_001.fastq.gz	control	control	area_control	area_control	na	na	na	na	na	na	na
+KITB01	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix061-KITB01_S84/Alix061-KITB01_S84_L001_R1_001.fastq.gz	control	control	kit_control	kit_control	na	na	na	na	na	na	na
+PM26	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix062-PM26_S85/Alix062-PM26_S85_L001_R1_001.fastq.gz	biological	mites	mites	Tyus	Male	SY	05/14/21	90	90	Amerodectes and Proctophyllodes	Amerodectes and Proctophyllodes
+PF26	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix063-PF26_S86/Alix063-PF26_S86_L001_R1_001.fastq.gz	biological	feather	feather	Tyus	Male	SY	05/14/21	90	na	Amerodectes and Proctophyllodes	na
+PM27	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix064-PM27_S87/Alix064-PM27_S87_L001_R1_001.fastq.gz	biological	mites	mites	Grayson	Male	SY	05/14/21	7	7	Proctophyllodes	Proctophyllodes
+PF27	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix065-PF27_S88/Alix065-PF27_S88_L001_R1_001.fastq.gz	biological	feather	feather	Grayson	Male	SY	05/14/21	7	na	Proctophyllodes	na
+PM28	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix066-PM28_S89/Alix066-PM28_S89_L001_R1_001.fastq.gz	biological	mites	mites	Matt Foley	Male	SY	05/14/21	12	12	Amerodectes	Amerodectes
+PF28	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix067-PF28_S90/Alix067-PF28_S90_L001_R1_001.fastq.gz	biological	feather	feather	Matt Foley	Male	SY	05/14/21	12	na	Amerodectes	na
+PM29	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix068-PM29_S91/Alix068-PM29_S91_L001_R1_001.fastq.gz	biological	mites	mites	Kayce	Female	ASY	05/13/21	1	1	Proctophyllodes	Proctophyllodes
+PF29	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix069-PF29_S92/Alix069-PF29_S92_L001_R1_001.fastq.gz	biological	feather	feather	Kayce	Female	ASY	05/13/21	1	na	Proctophyllodes	na
+PM30	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix070-PM30_S93/Alix070-PM30_S93_L001_R1_001.fastq.gz	biological	mites	mites	Trisha	Female	SY	05/14/21	135	135	Amerodectes	Amerodectes
+PF30	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix071-PF30_S94/Alix071-PF30_S94_L001_R1_001.fastq.gz	biological	feather	feather	Trisha	Female	SY	05/14/21	135	na	Amerodectes	na
+KITB02	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix072-KITB02_S95/Alix072-KITB02_S95_L001_R1_001.fastq.gz	control	control	kit_control	kit_control	na	na	na	na	na	na	na
+AKC04	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix073-AKC04_S96/Alix073-AKC04_S96_L001_R1_001.fastq.gz	control	control	area_control	area_control	na	na	na	na	na	na	na
+WASH26	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix074-WASH26_S97/Alix074-WASH26_S97_L001_R1_001.fastq.gz	control	control	wash_control	wash_control	na	na	na	na	na	na	na
+PCR1Blank1	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix075-PCR1Blank1_S98/Alix075-PCR1Blank1_S98_L001_R1_001.fastq.gz	control	control	pcr_control	pcr_control	na	na	na	na	na	na	na
+PCR1Blank2	/scrfs/storage/amatthews/20220621_ITS/raw_data/Alix076-PCR1Blank2_S99/Alix076-PCR1Blank2_S99_L001_R1_001.fastq.gz	control	control	pcr_control	pcr_control	na	na	na	na	na	na	na
+
