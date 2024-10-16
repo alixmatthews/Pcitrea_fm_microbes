@@ -1,7 +1,11 @@
+This purpose of this step is to process the reads for downstream analyses
+
+#### Data file in this directory and used for this step:
+- `ITS_forward_manifest.tsv`: manifest file for QIIME2 input
+
+---
+
 ### Start an interactive srun on the AHPCC
-
-Only file here: `ITS_forward_manifest.tsv`: manifest file for QIIME2 input
-
 
 ```
 srun --nodes=1 --ntasks-per-node=1 --cpus-per-task=16 --partition pcon06 --time 6:00:00 --pty /bin/bash
