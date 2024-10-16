@@ -1,12 +1,9 @@
-# 16S data analysis
-# Run1 and Run2 combined
-
 Now that we know that we don't have batch effects, we can safely move forward with combining Run1 and Run2 data into a single analysis. It is possible to merge these two runs within QIIME2 (using the 'group'/'collapse' method), but it is risky to do so. The reason it is risky is because our DADA2 runs were done separately, so some of the features that DADA2 identified could be repeated between runs but the feature-id could be different (unknowingly, since they are just a bunch of numbers and letters), so it would artifically inflate the feature counts for each sample. The collapse method may account for this, but it is not clear how it would do so (or if it does so). So we'll consider all samples as one big run, analyze them together, and then collapse the samples. This is the safer bet and is a bit cleaner.
 
-#### Data files here:
+#### Data files in this directory and used for this step:
 `16S_FR_Run1Run2_manifest.tsv`: concatenated version of Run1 and Run2 manifest files containing metadata and filepaths
 
-
+---
 
 #### Start an interactive srun on the AHPCC
 
