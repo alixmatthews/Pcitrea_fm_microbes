@@ -1,7 +1,6 @@
-# Decontam
-
 Here we are running a decontam pipeline in R.
 
+---
 #### Data file in this directory and used for this step:
 - `decontam_20221005.R`: decontam R pipeline
 - `16S_filtered-all_samples-feature_table-with-taxonomy.biom`: biom file with all samples, features, and taxonomy
