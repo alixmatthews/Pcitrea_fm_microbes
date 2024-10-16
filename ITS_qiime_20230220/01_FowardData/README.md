@@ -76,10 +76,10 @@ qiime demux summarize \
 
 
 
-#### Looks better and I bet we will remove poor reads at the next step.
+Looks better and we will remove poor reads at the next step 
 
 
 
 ---
 
-### Now can move onto the DADA2/UNITE steps
+### Now can move onto the DADA2/UNITE steps (`02_dada2`)
