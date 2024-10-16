@@ -2,10 +2,9 @@
 # First checking for batch effects
 
 
-#### Data files used for this step:
-`16S_FR_Run1_manifest.tsv`: manifest file containing metadata and filepaths for Run1 only
-
-`16S_FR_Run2_manifest.tsv`: manifest file containing metadata and filepaths for Run2 only
+#### Data files in this directory and used for this step:
+- `16S_FR_Run1_manifest.tsv`: manifest file containing metadata and filepaths for Run1 only
+- `16S_FR_Run2_manifest.tsv`: manifest file containing metadata and filepaths for Run2 only
 
 #### Start an interactive srun on the AHPCC
 
@@ -273,5 +272,5 @@ qiime diversity core-metrics-phylogenetic \
 
 -  No batch effects! Can tell because the plots do not separate "Run1" and "Run2" samples in PCA space
 
-### Let's move forward to the next directory! `02_Run1Run2_combo`
+### Move forward to the next directory! `02_Run1Run2_combo`
 
