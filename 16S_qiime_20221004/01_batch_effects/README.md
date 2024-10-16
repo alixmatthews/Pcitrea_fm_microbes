@@ -1,10 +1,11 @@
-# 16S data analysis
-# First checking for batch effects
-
+This step is to check for batch effects.
 
 #### Data files in this directory and used for this step:
 - `16S_FR_Run1_manifest.tsv`: manifest file containing metadata and filepaths for Run1 only
 - `16S_FR_Run2_manifest.tsv`: manifest file containing metadata and filepaths for Run2 only
+
+
+---
 
 #### Start an interactive srun on the AHPCC
 
