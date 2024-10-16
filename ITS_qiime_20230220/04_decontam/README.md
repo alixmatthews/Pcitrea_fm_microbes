@@ -1,8 +1,6 @@
-# Decontam
-
 Here we are running a decontam pipeline in R.
 
-#### Data files here:
+#### Data file in this directory and used for this step:
 - `decontam_20230220.R`: decontam R pipeline
 - `ITS_fungi-all_samples-feature_table-with-taxonomy.biom`: biom file with all samples, features, and taxonomy
 - `DecontamResults_prev05.csv`: results after running pipeline
@@ -133,6 +131,6 @@ qiime feature-table summarize \
 
 ---
 
-### Now move on to separating the bio from control samples for further analysis!
+### Now move on to separating the bio from control samples for further analysis! (`05_SeparateSamples`)
 
 
