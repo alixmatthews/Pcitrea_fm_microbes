@@ -1,3 +1,7 @@
+The purpose of this step is to run a taxonomic classifier and do an initial check of the taxonomic diversity
+
+---
+
 ### If needed, start an interactive srun on the AHPCC
 
 ```
@@ -155,4 +159,4 @@ Things look pretty good, nothing seems fishy. Feathers have more diversity on th
 
 ---
 
-### Move onto decontam!
+### Move onto decontam! (`04_decontam`)
