@@ -1,3 +1,8 @@
+The purpose of this step is read denoising.
+
+
+---
+
 #### Start an interactive srun on the AHPCC
 
 ```
@@ -97,7 +102,7 @@ qiime phylogeny align-to-tree-mafft-fasttree \
 
 ---
 
-### Now can move on to the classifier step.
+### Now can move on to the classifier step (`03_taxonomy`)
 
 
 
