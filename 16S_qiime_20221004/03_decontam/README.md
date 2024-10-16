@@ -108,3 +108,8 @@ qiime feature-table summarize \
   --o-visualization 03_decontam/16S_FR_Run1Run2_afterQtrim-dada2_table-grouped-filtered-decontam.qzv \
   --m-sample-metadata-file 16S_sample_metadata.tsv
 ```
+
+
+
+### Now move on to separating the bio from control samples for further analysis! (`04_SeparateSamples`)!
+
