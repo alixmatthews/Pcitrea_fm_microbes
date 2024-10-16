@@ -1,4 +1,4 @@
-This purpose of this step is to process the reads for downstream analyses
+This purpose of this step is to start to process the reads for downstream analyses (in this case, trim primers)
 
 #### Data file in this directory and used for this step:
 - `ITS_forward_manifest.tsv`: manifest file for QIIME2 input
@@ -52,7 +52,7 @@ qiime demux summarize \
 ---
 
 ### Now can remove adapters with cutadapt
-#### I want to trim the forward and reverse adapters. To check on this, I viewed the merged .fastq files and the p-front sequence is at the beginning of the reads and the p-anywhere close to the end. The reverse complements are not found, so only need to do this step once. I'm setting the p-minimum-length to 250 because that is when the reads start to get a  little worse. If I set it at 300, there are no reads left after trimming!
+I want to trim the forward and reverse adapters. To check on this, I viewed the merged .fastq files and the p-front sequence is at the beginning of the reads and the p-anywhere close to the end. The reverse complements are not found, so only need to do this step once. I'm setting the p-minimum-length to 250 because that is when the reads start to get a  little worse. If I set it at 300, there are no reads left after trimming!
 
 ```
 ## run cutadapt
