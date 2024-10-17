@@ -1,6 +1,7 @@
 # PiCrust
+#### Note: these analyses were not presented in ms
 
-Note: subdirectory #10 was a trial with q2-longitudinal. Didn't produce anything valuable for these data and wasn't quite what we were going for. So removed it, but have kept the numbering as #11 for picrust in order to stay consistent with my messier notes.
+Another note: subdirectory #10 was a trial with q2-longitudinal. Didn't produce anything valuable for these data and wasn't quite what we were going for. So removed it, but have kept the numbering as #11 for picrust in order to stay consistent with my messier notes.
 
 Standalone PiCrust2 worked better than qiime2 plugin at the time of these analyses. More flexibility on output with the standalone version.
  
