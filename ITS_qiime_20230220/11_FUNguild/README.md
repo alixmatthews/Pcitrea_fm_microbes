@@ -1,5 +1,26 @@
 # FUNguild
 
+#### NOTE: these results were not presented in ms
+
+#### Files in this directory (listed in order of us):
+- `OTU-table-frombiom-with-taxonomy.tsv`: converted taxonomy to biom, then biom to tsv 
+- `OTU-table-frombiom-with-taxonomy.txt`: converted taxonomy to biom, then biom to tsv, then tsv to txt to input into FUNguilds
+- `Guilds_v1.0.py`: FUNguilds v.1.0 python file (to run the program)
+- `Guilds_v1.1.py`: FUNguilds v.1.1 python file (to run the program)
+- `OTU-table-frombiom-with-taxonomy.guilds.txt`: 1st output from FUNguilds (also used for a final visualization of the dif trophic modes)
+- `OTU-table-frombiom-with-taxonomy.guilds-animalpathogens`: reduced 1st output to only include animal pathogens that are highly probable or probable
+- `OTU-table-frombiom-with-taxonomy.guilds-animalpathogens_transposed.txt`: transposed version of file above to calculate rel abund
+- `RelativeAbundance_funguild_20230624.R`: calculate relative abundance of the transposed version of file above in R
+- `MaAsLin2_FUNguild_20230624.R`: Run maaslin on the relative abundance file.  This "works" but yields no output (every ASV is unique and maaslin2 filters out all of the features before running the analysis, so sadly cannot do this)
+- `FUNguild_metadata.csv`: metadata input file if wanting to run the maaslin R file
+- `OTU-table-frombiom-with-taxonomy.guilds-animalpathogens_transposed_relabun.csv`: relative abundance input file if wanting to run the maaslin R file
+- `FUNguild-20230615.R`: get a visual on the dif trophic modes using the 1st output from FUNguilds, if you want...
+
+
+---
+
+
+
 get going on HPC
 
 ```
@@ -104,7 +125,7 @@ This also worked!
   
 ---
 
-## Just a visual on the different trophic modes for the ms
+## Just a visual on the different trophic modes
 - `OTU-table-frombiom-with-taxonomy.guilds.txt`
 - `FUNguild-20230615.R`
 
