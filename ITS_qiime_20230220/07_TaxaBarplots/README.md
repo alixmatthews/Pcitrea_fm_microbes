@@ -1,5 +1,21 @@
 # Taxa barplots
 
+This step is to create taxa barplots and then use R to make them look better.
+
+
+#### Data files in this directory and used for this step:
+
+- `ITS_forward_afterQtrim-pmin1-dada2_table-fungi-decontam-bio_samples-unite-level-2.csv`: exported results from qiime taxa barplot at phylum level
+
+- `ITS_forward_afterQtrim-pmin1-dada2_table-fungi-decontam-bio_samples-unite-level-5.csv`: exported results from qiime taxa barplot at family level
+
+- `ITS_forward_afterQtrim-pmin1-dada2_table-fungi-decontam-bio_samples-unite-level-6.csv`: exported results from qiime taxa barplot at genus level
+
+- `TaxaBarplots_R/500plus`: R scripts for visualization
+
+
+---
+
 This should be on un-rarefied data, biological samples only, after removing contaminants. In other words, do not use rarefied data for taxa barplots.
 
 ```
@@ -20,9 +36,9 @@ qiime taxa barplot \
 
 ## Import the .qzv file onto Qiime2View and then download the .csv files for each level desired.
 
-Phylum: `ITS_forward_afterQtrim-pmin1-dada2_table-fungi-decontam-bio_samples-unite-level-2.csv`
-Family: `ITS_forward_afterQtrim-pmin1-dada2_table-fungi-decontam-bio_samples-unite-level-5.csv`
-Genus: `ITS_forward_afterQtrim-pmin1-dada2_table-fungi-decontam-bio_samples-unite-level-6.csv`
+- Phylum: `ITS_forward_afterQtrim-pmin1-dada2_table-fungi-decontam-bio_samples-unite-level-2.csv`
+- Family: `ITS_forward_afterQtrim-pmin1-dada2_table-fungi-decontam-bio_samples-unite-level-5.csv`
+- Genus: `ITS_forward_afterQtrim-pmin1-dada2_table-fungi-decontam-bio_samples-unite-level-6.csv`
 
 
 
