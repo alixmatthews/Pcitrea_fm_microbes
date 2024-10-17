@@ -1,5 +1,22 @@
 # Taxa barplots
 
+This step is to create taxa barplots and then use R to make them look better.
+
+
+#### Data files in this directory and used for this step:
+
+- `taxa_barplots-16S_grouped-filtered-decontam-bio_samples-silva-level-2.csv`: exported results from qiime taxa barplot at phylum level
+
+- `taxa_barplots-16S_grouped-filtered-decontam-bio_samples-silva-level-5.csv`: exported results from qiime taxa barplot at family level
+
+- `taxa_barplots-16S_grouped-filtered-decontam-bio_samples-silva-level-6.csv`: exported results from qiime taxa barplot at genus level
+
+- `TaxaBarplots_R/500plus`: R scripts for visualization
+
+
+---
+
+
 Not using rarefied data for taxa barplots... all data with seqs >500
 
 
