@@ -9,3 +9,6 @@ This directory includes the plotting of alpha and beta diversity indices, for bo
 - `Plotting_16S_ITS_combos_rarefied_data.csv`: master dataframe of 16S and ITS results using only 1451+ read results (not used in final analyses, just a comparison)
 - `Plotting_16S_ITS_combos_rarefied_data_20230627.R`: R script which plots the data from the master dataframe of 16S and ITS results using only 1451+ read results (not used in final analyses, just a comparison)
 
+---
+
+In `dietR/20230501` directory, includes R scripts and associated .csv files which are needed to calculate electivity indices per sample (see more in the README file there)
