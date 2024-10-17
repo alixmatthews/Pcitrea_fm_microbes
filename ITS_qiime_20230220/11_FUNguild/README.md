@@ -2,7 +2,7 @@
 
 #### NOTE: these results were not presented in ms
 
-#### Files in this directory (listed in order of us):
+#### Files in this directory (listed in order of use):
 - `OTU-table-frombiom-with-taxonomy.tsv`: converted taxonomy to biom, then biom to tsv 
 - `OTU-table-frombiom-with-taxonomy.txt`: converted taxonomy to biom, then biom to tsv, then tsv to txt to input into FUNguilds
 - `Guilds_v1.0.py`: FUNguilds v.1.0 python file (to run the program)
