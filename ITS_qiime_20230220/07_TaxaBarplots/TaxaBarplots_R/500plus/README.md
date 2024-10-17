@@ -1,0 +1,6 @@
+This step is to use exported taxa barplot results from qiime2 and then use R to make them look better.
+
+#### Data files in this directory and used for this step:
+- `RelativeAbundance_ITS_20230421.R`: use this one with the output from the Qiime2View .csv files (above) to calculate relative abundance at each of the taxonomic levels. This also goes through the curation of the files for the taxonomic barplots. First, remove samples that have <500 feature counts. Second, curate features (e.g., combine certain features that should be combined but are not due to the inconsistency with SILVA taxonomy) for taxonomic barplots. Third, curate features for MaAsLin2, an upcoming step (e.g., remove features that are not identified at the level we are interested in, such as only identified to Order, but we are interested in looking at Family).
+- `16S_ITS_COMBO_taxabarplots_20230903.R`: this uses the curated .csv files at the second curation step from the `RelativeAbundance_ITS_20230421.R` file and makes the taxonomic barplots. This includes both 16S and ITS data for ease of editing downstream, although this particular file is in the ITS directory.
+- `ITS_taxabarplots_20230501.R`: ITS taxabarplots making (same as above, but only ITS)
