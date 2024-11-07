@@ -277,6 +277,8 @@ qiime diversity core-metrics-phylogenetic \
 
 ---
 
+### Variable descriptions
+
 `16S_FR_Run1_manifest.tsv`
 
 | Variable Name            | Description                                            | Units      | Notes on Categorical Values                 |
