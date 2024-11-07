@@ -12,8 +12,8 @@
 - `OTU-table-frombiom-with-taxonomy.guilds-animalpathogens_transposed.txt`: transposed version of file above to calculate rel abund
 - `RelativeAbundance_funguild_20230624.R`: calculate relative abundance of the transposed version of file above in R
 - `MaAsLin2_FUNguild_20230624.R`: Run maaslin on the relative abundance file.  This "works" but yields no output (every ASV is unique and maaslin2 filters out all of the features before running the analysis, so sadly cannot do this)
-- `FUNguild_metadata.csv`: metadata input file if wanting to run the maaslin R file
-- `OTU-table-frombiom-with-taxonomy.guilds-animalpathogens_transposed_relabun.csv`: relative abundance input file if wanting to run the maaslin R file
+- `FUNguild_metadata.csv`: metadata input file if wanting to run the maaslin R file (same attributes as original metadata)
+- `OTU-table-frombiom-with-taxonomy.guilds-animalpathogens_transposed_relabun.csv`: relative abundance input file if wanting to run the maaslin R file (transposed; columns are ASVs, rows are samples, matrix is rel abund of each)
 - `FUNguild-20230615.R`: get a visual on the dif trophic modes using the 1st output from FUNguilds, if you want...
 
 
