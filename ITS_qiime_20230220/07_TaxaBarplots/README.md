@@ -13,6 +13,7 @@ This step is to create taxa barplots and then use R to make them look better.
 
 - `TaxaBarplots_R/500plus`: R scripts for visualization
 
+**NOTE:** for each of the `.csv` files listed above, the first column (`index`) is the sample identifier, while the remaining columns are each phylogenetic unit at specific taxonomic levels (phylum, family, genus, respectively). The values within the matrix are read count values (count data)
 
 ---
 
