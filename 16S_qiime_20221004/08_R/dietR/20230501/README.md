@@ -5,6 +5,7 @@ This directory includes R scripts and associated .csv files which are needed to 
 - `16S_ITS_COMBO_VanderploegScavia_20230525.R` plots V-S indices for both 16S and ITS data in a single script for ease of downstream editing
 
 #### Specific .csv files listed:
+**NOTE:** on all of these .csv files, the first column is the bird ID (listed as a number instead of the "name", e.g., "P01" is "Ja" from original manifest file), each of the following columns is the microbial taxonomy at different levels (phylum, family, genus), and the matrix is composed of the relative abundance of each taxonomic unit for each sample. 
 
 PHYLUM LEVEL:
 
