@@ -1,7 +1,7 @@
 Now that we know that we don't have batch effects, we can safely move forward with combining Run1 and Run2 data into a single analysis. It is possible to merge these two runs within QIIME2 (using the 'group'/'collapse' method), but it is risky to do so. The reason it is risky is because our DADA2 runs were done separately, so some of the features that DADA2 identified could be repeated between runs but the feature-id could be different (unknowingly, since they are just a bunch of numbers and letters), so it would artifically inflate the feature counts for each sample. The collapse method may account for this, but it is not clear how it would do so (or if it does so). So we'll consider all samples as one big run, analyze them together, and then collapse the samples. This is the safer bet and is a bit cleaner.
 
 #### Data files in this directory and used for this step:
-`16S_FR_Run1Run2_manifest.tsv`: concatenated version of Run1 and Run2 manifest files containing metadata and filepaths
+`16S_FR_Run1Run2_manifest.tsv`: concatenated version of Run1 and Run2 manifest files containing metadata and filepaths (see description of table at end of this README file)
 
 ---
 
@@ -248,6 +248,27 @@ qiime feature-table summarize \
 
 
 Looks like we lost 3 samples between the grouping and the taxonomy here. 3 samples had zero features in the previous dataset (`16S_FR_Run1Run2_afterQtrim-dada2_table-grouped`), so this makes sense. 
+
+
+---
+### Variable descriptions
+
+`16S_FR_Run1Run2_manifest.tsv `
+
+| Variable Name            | Description                                            | Units      | Notes on Categorical Values                 |
+|--------------------------|--------------------------------------------------------|------------|---------------------------------------------|
+| `sample-id`              | Unique identifier for each sample                      | N/A        | Samples that are paired share the same number value (e.g., PM01 and PF01 were mites and the associated feather, respectively, collected from the same bird), followed by whether the file was on the first (Run1) or second (Run2) sequencing run                                           |
+| `forward-absolute-filepath` | File path to the forward read sequence file        | File path  | Absolute path for locating forward reads    |
+| `reverse-absolute-filepath` | File path to the reverse read sequence file        | File path  | Absolute path for locating reverse reads    |
+| `sample_group_id`        | Identifier for sample group                            | N/A        | unique sample identifier                                         |
+| `run`                    | Sequencing run identifier                              | N/A        | `Run1` or `Run2`                                         |
+| `bio_or_control`         | Indicates if sample is biological or a control         | N/A        | `biological` for biological, `control` for control samples, and `PCR`Blank*` for pcr controls |
+| `category_broad`         | Broad category for sample classification               | N/A        | e.g., `mites`, `feather`, `control`      |
+| `category_specific`      | Specific category for sample classification            | N/A        | e.g., `mites`, `feather`, `wash_control`, `kit_control`, `area_control`, `water_control`, `pcr_control`            |
+| `bird_id`                | Unique identifier for each bird                        | N/A        | "names" for each bird in the study (easier and more fun way to keep track)                                      |
+| `bird_sex`               | Sex of the bird                                        | N/A        | `M` for male, `F` for female                |
+| `bird_age`               | Age of the bird                                        | Years      | e.g., `ASY` for after-second year; `SY` for second year                        |
+| `capture_date`           | Date the bird was captured                             | MM/DD/YY | N/A                                         |
 
 
 
