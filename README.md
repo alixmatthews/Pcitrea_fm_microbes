@@ -23,7 +23,7 @@ This repo is organized into two main sections:
   - 07_TaxaBarplots: create taxa barplots
   - 08_R: plotting and analyses run in R (e.g., 'pretty plots,' dietR)
   - 09_Maaslin: differential abundance analyses
-  - 11_picrust: predictive metagenomic analyses
+  - 11_picrust: predictive metagenomic analyses (removed, but available upon request)
 
 ### ITS_qiime_20230220
 - Contains analyses for ITS (fungi) sequences of feathers and mite data
@@ -38,7 +38,7 @@ This repo is organized into two main sections:
   - 08_RPCA: run RPCA analyses
   - 09_R: plotting and analyses run in R (e.g., 'pretty plots,' dietR)
   - 10_Maaslin: differential abundance analyses
-  - 11_FUNguild: predictive functional analyses
+  - 11_FUNguild: predictive functional analyses (removed, but available upon request)
 
 ## Individual subdirectory READMEs
 Each subdirectory has a dedicated README file providing more detailed information, such as the scripts used to generate results/output files, analysis guidelines, data formats, as well as variable definitions. Please consult these individual READMEs for specific instructions related to each component of this repo.
