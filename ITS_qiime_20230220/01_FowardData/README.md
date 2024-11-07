@@ -1,7 +1,7 @@
 This purpose of this step is to start to process the reads for downstream analyses (in this case, trim primers)
 
 #### Data file in this directory and used for this step:
-- `ITS_forward_manifest.tsv`: manifest file for QIIME2 input
+- `ITS_forward_manifest.tsv`: manifest file for QIIME2 input (see below for table attribute descriptions)
 
 ---
 
@@ -83,3 +83,9 @@ Looks better and we will remove poor reads at the next step
 ---
 
 ### Now can move onto the DADA2/UNITE steps (`02_dada2`)
+
+
+---
+### Data attributes
+`ITS_forward_manifest.tsv`
+
