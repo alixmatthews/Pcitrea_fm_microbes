@@ -281,20 +281,20 @@ qiime diversity core-metrics-phylogenetic \
 
 | Variable Name            | Description                                            | Units      | Notes on Categorical Values                 |
 |--------------------------|--------------------------------------------------------|------------|---------------------------------------------|
-| `sample-id`              | Unique identifier for each sample                      | N/A        | N/A                                         |
+| `sample-id`              | Unique identifier for each sample                      | N/A        | Samples that are paired share the same number value (e.g., PM01 and PF01 were mites and the associated feather, respectively, collected from the same bird), followed by whether the file was on the first (Run1) or second (Run2) sequencing run                                           |
 | `forward-absolute-filepath` | File path to the forward read sequence file        | File path  | Absolute path for locating forward reads    |
 | `reverse-absolute-filepath` | File path to the reverse read sequence file        | File path  | Absolute path for locating reverse reads    |
-| `sample_group_id`        | Identifier for sample group                            | N/A        | N/A                                         |
-| `run`                    | Sequencing run identifier                              | N/A        | N/A                                         |
-| `bio_or_control`         | Indicates if sample is biological or a control         | N/A        | `Bio` for biological, `Control` for controls |
-| `category_broad`         | Broad category for sample classification               | N/A        | e.g., `Host`, `Symbiont`, `Environment`     |
-| `category_specific`      | Specific category for sample classification            | N/A        | e.g., `Bird`, `Feather`, `Soil`             |
-| `bird_id`                | Unique identifier for each bird                        | N/A        | N/A                                         |
+| `sample_group_id`        | Identifier for sample group                            | N/A        | unique sample identifier                                         |
+| `run`                    | Sequencing run identifier                              | N/A        | `Run1` or `Run2`                                         |
+| `bio_or_control`         | Indicates if sample is biological or a control         | N/A        | `biological` for biological, `control` for control samples, and `PCR`Blank*` for pcr controls |
+| `category_broad`         | Broad category for sample classification               | N/A        | e.g., `mites`, `feather`, `control`      |
+| `category_specific`      | Specific category for sample classification            | N/A        | e.g., `mites`, `feather`, `wash_control`, `kit_control`, `area_control`, `water_control`, `pcr_control`            |
+| `bird_id`                | Unique identifier for each bird                        | N/A        | "names" for each bird in the study (easier and more fun way to keep track)                                      |
 | `bird_sex`               | Sex of the bird                                        | N/A        | `M` for male, `F` for female                |
-| `bird_age`               | Age of the bird                                        | Years      | e.g., `1`, `2`, `3+`                        |
-| `capture_date`           | Date the bird was captured                             | YYYY-MM-DD | N/A                                         |
+| `bird_age`               | Age of the bird                                        | Years      | e.g., `ASY` for after-second year; `SY` for second year                        |
+| `capture_date`           | Date the bird was captured                             | MM/DD/YY | N/A                                         |
 
 
 
-`16S_FR_Run2_manifest.tsv`: same descriptors as `16S_FR_Run1_manifest.tsv`
+`16S_FR_Run2_manifest.tsv`: same descriptors as `16S_FR_Run1_manifest.tsv`, but for Run2 reads
 
