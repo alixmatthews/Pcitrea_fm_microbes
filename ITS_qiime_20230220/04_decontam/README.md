@@ -3,8 +3,8 @@ Here we are running a decontam pipeline in R.
 #### Data file in this directory and used for this step:
 - `decontam_20230220.R`: decontam R pipeline
 - `ITS_fungi-all_samples-feature_table-with-taxonomy.biom`: biom file with all samples, features, and taxonomy
-- `DecontamResults_prev05.csv`: results after running pipeline
-- `ContamASVsPrev05ToRemove.txt`: filtered results from  `DecontamResults_prev05.csv` that are ASVs to remove (they are true contaminants)
+- `DecontamResults_prev05.csv`: results after running pipeline (see description of table at end of this README file)
+- `ContamASVsPrev05ToRemove.txt`: filtered results from  `DecontamResults_prev05.csv` that are ASVs to remove (they are true contaminants), list
 
 
 ## Specific steps to get to that point
@@ -132,5 +132,18 @@ qiime feature-table summarize \
 ---
 
 ### Now move on to separating the bio from control samples for further analysis! (`05_SeparateSamples`)
+
+
+---
+
+### Variable descriptors
+`DecontamResults_prev05.csv` - first columm is the ASV/OTU ID number
+
+
+| Variable Name | Description                                                          | Units | Notes                |
+|---------------|----------------------------------------------------------------------|-------|-------------------------------------------|
+| `pa.pos`      | Proportion of abundance of each ASV in positive 'biological' samples                       | Count|         |
+| `pa.neg`      | Proportion of abundance of each ASV in negative 'control' samples               | Count|         |
+| `contaminant` | Classification of whether the sequence is a likely contaminant       | Boolean | `TRUE` for contaminant, `FALSE` otherwise |
 
 
