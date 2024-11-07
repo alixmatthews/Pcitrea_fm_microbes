@@ -7,8 +7,8 @@
 
 #### Files here include:
 - `16S_FR_Run1Run2_afterQtrim-dada2_rep_seq-grouped-filtered-decontam-bio_samples_500plus.fasta`: fasta file containing features (aka, ASVs; MD5 identifier and representative sequence) for filtered, decontaminated, biological samples that have 500+ seqs associated with them
-- `16S_FR_Run1Run2_afterQtrim-dada2_table-grouped-filtered-decontam-bio_samples_500plus.tsv`: a table showing filtered, decontaminated, biological samples that have 500+ seqs associated with them, their read counts (values), and associated ASV
-- `16S_FR_Run1Run2_afterQtrim-dada2_table-grouped-filtered-decontam-bio_samples_500plus_transposed.tsv`: the same as `16S_FR_Run1Run2_afterQtrim-dada2_table-grouped-filtered-decontam-bio_samples_500plus.tsv`, but tranposed x-y... a table showing filtered, decontaminated, biological samples that have 500+ seqs associated with them, their read counts (values), and associated ASV
+- `16S_FR_Run1Run2_afterQtrim-dada2_table-grouped-filtered-decontam-bio_samples_500plus.tsv`: a table showing filtered, decontaminated, biological samples (columns) that have 500+ seqs associated with them, their read counts (values), and associated ASV (rows)
+- `16S_FR_Run1Run2_afterQtrim-dada2_table-grouped-filtered-decontam-bio_samples_500plus_transposed.tsv`: the same as `16S_FR_Run1Run2_afterQtrim-dada2_table-grouped-filtered-decontam-bio_samples_500plus.tsv`, but tranposed x-y... a table showing filtered, decontaminated, biological samples (rows) that have 500+ seqs associated with them, their read counts (values), and associated ASV (columns)
 
 
 ---
