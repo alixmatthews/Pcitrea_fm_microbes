@@ -23,9 +23,27 @@ GENUS LEVEL:
 - `16S_grouped-filtered-decontam-bio_samples-silva-level-6_nomissing_relabun_curated_MaAsLin2.csv`: Relative abundance of 500+ seq samples at GENUS level, dataset has been curated for MaAsLin2 (see `07_TaxaBarplots/README.md`) for more information on how this file was created.
 - `16S_grouped-filtered-decontam-bio_samples-silva-level-6_nomissing_relabun_curated_MaAsLin2_dietr_paired_available.csv`: Same as above, but only includes FEATHER (available) samples that were paired (by SampleID number)
 - `16S_grouped-filtered-decontam-bio_samples-silva-level-6_nomissing_relabun_curated_MaAsLin2_dietr_paired_consumed.csv`: Same as above, but only includes MITES (consumed) samples that were paired (by SampleID number)
-- `genus_vs_long_plotting_20230522.csv`: output file from R script used for final plotting
+- `genus_vs_long_plotting_20230522.csv`: output file from R script used for final plotting. See description of attributes below.
 
 
 ---
 
 In `dietR/20230501/electivity_20230522` directory, includes R script (`electivity_16S_20230522.R`) for "pickiness score" analysis, averaging over the top 10 most available resources and associated electivity index per sample by resource (input found here: `16S_electivity_top10avail_20230522.csv`)
+
+
+---
+## Attribute descriptions
+`genus_vs_long_plotting_20230522.csv`: this table provides a reference for understanding the statistical results related to ASV electivity, including measures of mean, variability, confidence intervals, and categorization.
+
+| Variable Name        | Description                                                        | Units            | Notes on Categorical Values             |
+|----------------------|--------------------------------------------------------------------|------------------|-----------------------------------------|
+| `ASV`                | Amplicon sequence variant (ASV) identifier                         | N/A              | N/A                                     |
+| `mean.vs`            | Mean value of V-S electivity for the ASV                               | Mean score       | N/A                                     |
+| `sd.vs`              | Standard deviation of V-S electivity for the ASV                       | Score (unitless) | N/A                                     |
+| `n.vs`               | Number of samples used to calculate the V-S electivity for the ASV     | Count            | N/A                                     |
+| `se.vs`              | Standard error of the mean V-S electivity for the ASV                  | Score (unitless) | N/A                                     |
+| `lower.ci.vs`        | Lower bound of the 95% confidence interval for V-S electivity          | Score (unitless) | N/A                                     |
+| `upper.ci.vs`        | Upper bound of the 95% confidence interval for V-S electivity          | Score (unitless) | N/A                                     |
+| `electivity_category`| Categorization of the electivity based on CI bounds  | N/A              | "against" = mites selected against the ASV, "for" = mites selected for the ASV, "neutral = mites were neutral towards the ASV (CIs crossed 0)           |
+
+---
