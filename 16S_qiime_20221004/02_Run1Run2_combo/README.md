@@ -250,7 +250,11 @@ qiime feature-table summarize \
 Looks like we lost 3 samples between the grouping and the taxonomy here. 3 samples had zero features in the previous dataset (`16S_FR_Run1Run2_afterQtrim-dada2_table-grouped`), so this makes sense. 
 
 
+### Now we're ready to move on to Decontam! (`03_decontam`)
+
+
 ---
+
 ### Variable descriptions
 
 `16S_FR_Run1Run2_manifest.tsv `
@@ -270,6 +274,3 @@ Looks like we lost 3 samples between the grouping and the taxonomy here. 3 sampl
 | `bird_age`               | Age of the bird                                        | Years      | e.g., `ASY` for after-second year; `SY` for second year                        |
 | `capture_date`           | Date the bird was captured                             | MM/DD/YY | N/A                                         |
 
-
-
-### Now we're ready to move on to Decontam! (`03_decontam`)
