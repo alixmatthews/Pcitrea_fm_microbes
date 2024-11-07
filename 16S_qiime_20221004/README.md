@@ -1,4 +1,4 @@
-This directory contains files and subdirectories for the 16S data analyses (cleaned up from private repos). Below is a description of the file to begin the analyses (`16S_sample_metadata.tsv`) as well as the change in the number of reads during data processing (`ReadCounts_16S.xlsx`)
+This directory contains files and subdirectories for the 16S data analyses (cleaned up from private repos). Below is a description of the file to begin the analyses (`16S_sample_metadata.tsv`)
 
 #### Files in this directory
 - `16S_sample_metadata.tsv` is the original metadata file. Modified in some downstream steps (e.g., for plotting)
