@@ -1,8 +1,8 @@
 This step is to check for batch effects.
 
 #### Data files in this directory and used for this step:
-- `16S_FR_Run1_manifest.tsv`: manifest file containing metadata and filepaths for Run1 only
-- `16S_FR_Run2_manifest.tsv`: manifest file containing metadata and filepaths for Run2 only
+- `16S_FR_Run1_manifest.tsv`: manifest file containing metadata and filepaths for Run1 only (see end of README file for description of variables)
+- `16S_FR_Run2_manifest.tsv`: manifest file containing metadata and filepaths for Run2 only (see end of README file for description of variables)
 
 
 ---
@@ -274,4 +274,27 @@ qiime diversity core-metrics-phylogenetic \
 -  No batch effects! Can tell because the plots do not separate "Run1" and "Run2" samples in PCA space
 
 ### Move forward to the next directory! `02_Run1Run2_combo`
+
+---
+
+`16S_FR_Run1_manifest.tsv`
+
+| Variable Name            | Description                                            | Units      | Notes on Categorical Values                 |
+|--------------------------|--------------------------------------------------------|------------|---------------------------------------------|
+| `sample-id`              | Unique identifier for each sample                      | N/A        | N/A                                         |
+| `forward-absolute-filepath` | File path to the forward read sequence file        | File path  | Absolute path for locating forward reads    |
+| `reverse-absolute-filepath` | File path to the reverse read sequence file        | File path  | Absolute path for locating reverse reads    |
+| `sample_group_id`        | Identifier for sample group                            | N/A        | N/A                                         |
+| `run`                    | Sequencing run identifier                              | N/A        | N/A                                         |
+| `bio_or_control`         | Indicates if sample is biological or a control         | N/A        | `Bio` for biological, `Control` for controls |
+| `category_broad`         | Broad category for sample classification               | N/A        | e.g., `Host`, `Symbiont`, `Environment`     |
+| `category_specific`      | Specific category for sample classification            | N/A        | e.g., `Bird`, `Feather`, `Soil`             |
+| `bird_id`                | Unique identifier for each bird                        | N/A        | N/A                                         |
+| `bird_sex`               | Sex of the bird                                        | N/A        | `M` for male, `F` for female                |
+| `bird_age`               | Age of the bird                                        | Years      | e.g., `1`, `2`, `3+`                        |
+| `capture_date`           | Date the bird was captured                             | YYYY-MM-DD | N/A                                         |
+
+
+
+`16S_FR_Run2_manifest.tsv`: same descriptors as `16S_FR_Run1_manifest.tsv`
 
