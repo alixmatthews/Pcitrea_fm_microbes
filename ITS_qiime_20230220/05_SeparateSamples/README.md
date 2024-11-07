@@ -6,8 +6,8 @@
 
 
 #### Files here include:
-- `ITS_forward_afterQtrim-pmin1-dada2_table-fungi-decontam-bio_samples_500plus.tsv`: a table showing filtered, decontaminated, biological samples that have 500+ seqs associated with them, their read counts (values), and associated ASV
-- `ITS_forward_afterQtrim-pmin1-dada2_table-fungi-decontam-bio_samples_500plus_transposed.tsv`: the same as `ITS_forward_afterQtrim-pmin1-dada2_table-fungi-decontam-bio_samples_500plus.tsv`, but tranposed x-y... a table showing filtered, decontaminated, biological samples that have 500+ seqs associated with them, their read counts (values), and associated ASV
+- `ITS_forward_afterQtrim-pmin1-dada2_table-fungi-decontam-bio_samples_500plus.tsv`: a table showing filtered, decontaminated, biological samples (columns) that have 500+ seqs associated with them, their read counts (values in matrix, count data), and associated ASV (rows)
+- `ITS_forward_afterQtrim-pmin1-dada2_table-fungi-decontam-bio_samples_500plus_transposed.tsv`: the same as `ITS_forward_afterQtrim-pmin1-dada2_table-fungi-decontam-bio_samples_500plus.tsv`, but tranposed x-y... a table showing filtered, decontaminated, biological samples (rows) that have 500+ seqs associated with them, their read counts (values in matrix, count data), and associated ASV (columns)
 
 
 ---
